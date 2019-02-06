@@ -38,16 +38,6 @@ public class Consequence {
         // Uses Builder pattern.
     }
 
-    // If more properties are added, consider the Builder pattern.
-    public Consequence(String description,
-                       boolean isLongTerm,
-                       boolean isShortTerm) {
-
-        this.description = description;
-        this.isLongTerm = isLongTerm;
-        this.isShortTerm = isShortTerm;
-    }
-
     public String description() {
         return description;
     }
