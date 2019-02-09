@@ -1,6 +1,9 @@
 package ca.ubc.cs.cpsc210.entry;
 
-enum Status {
+/**
+ * @author Peyton Seigo
+ */
+public enum Status {
     DRAFT,
     INCOMPLETE,
     COMPLETE
