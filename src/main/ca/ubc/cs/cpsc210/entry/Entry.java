@@ -1,5 +1,7 @@
 package ca.ubc.cs.cpsc210.entry;
 
+import ca.ubc.cs.cpsc210.exceptions.ElementNotFoundException;
+
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -45,9 +47,19 @@ public class Entry {
         choices.add(choice);
     }
 
+    /**
+     * From {@code choices}, returns first occurrence of {@code Consequence} such that its description equals given
+     * {@code description}.
+     * @param description description to match for
+     * @return {@code Consequence} with its description equal to given {@code description}
+     * @throws ElementNotFoundException if no {@code Consequence} with given {@code description} is found
+     */
+    public Choice getChoice(String description) throws ElementNotFoundException {
+        return null;
+    }
 
     /**
-     * Removes first occurrence of {@code Consequence} in {@code choices} such that its description equals given
+     * In {@code choices}, removes first occurrence of {@code Consequence} such that its description equals given
      * {@code description}. If no match is found, {@code this} is not modified.
      * @param description description to match for
      */

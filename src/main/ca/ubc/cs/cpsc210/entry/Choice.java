@@ -81,6 +81,30 @@ public class Choice {
     }
 
     /**
+     * Returns the number of {@code Consequence}s in {@code pros}.
+     * @return number of pros
+     */
+    public int prosCount() {
+        return 0;
+    }
+
+    /**
+     * Returns the number of {@code Consequence}s in {@code cons}.
+     * @return number of cons
+     */
+    public int consCount() {
+        return 0;
+    }
+
+    /**
+     * Returns the number of {@code Consequence}s in {@code regrets}.
+     * @return number of regrets
+     */
+    public int regretsCount() {
+        return 0;
+    }
+
+    /**
      * Sets regret scale to given {@code value}, an {@code int} in [0, 100]. Note that this is different from the
      * {@code regrets} property. {@code regretValue} is just a number, while {@code regrets} is a collection of
      * {@code Consequence}s.
@@ -92,27 +116,30 @@ public class Choice {
     }
 
     /**
-     * Adds a {@code consequence} to this {@code Choice}'s {@code pros}. Duplicates are allowed.
+     * If not already in {@code pros}, adds given {@code consequence} to this {@code Choice}'s {@code pros}.
+     * Otherwise, does nothing.
      * @param consequence {@code Consequence} added to {@code pros}
      */
     public void addPro(Consequence consequence) {
-        pros.add(consequence);
+        add(pros, consequence);
     }
 
     /**
-     * Adds a {@code consequence} to this {@code Choice}'s {@code cons}. Duplicates are allowed.
+     * If not already in {@code cons}, adds given {@code consequence} to this {@code Choice}'s {@code cons}.
+     * Otherwise, does nothing.
      * @param consequence {@code Consequence} added to {@code cons}
      */
     public void addCon(Consequence consequence) {
-        cons.add(consequence);
+        add(cons, consequence);
     }
 
     /**
-     * Adds a {@code consequence} to this {@code Choice}'s {@code regrets}. Duplicates are allowed.
+     * If not already in {@code regrets}, adds given {@code consequence} to this {@code Choice}'s {@code regrets}.
+     * Otherwise, does nothing.
      * @param consequence {@code Consequence} added to {@code regrets}
      */
     public void addRegret(Consequence consequence) {
-        regrets.add(consequence);
+        add(regrets, consequence);
     }
 
     /**
@@ -158,6 +185,14 @@ public class Choice {
         }
 
         return null;
+    }
+
+    /**
+     * If not already in {@code list}, adds given {@code consequence} to {@code list}. Otherwise, does nothing.
+     * @param consequence {@code Consequence} added to {@code cons}
+     */
+    private void add(List<Consequence> list, Consequence consequence) {
+
     }
 
     /**

@@ -1,11 +1,15 @@
 package ca.ubc.cs.cpsc210.entry;
 
+import ca.ubc.cs.cpsc210.exceptions.EmptyDescriptionException;
+
 /**
- * Represents a side effect of some action, such as making a decision. This is mostly a wrapper around a {@code String},
- * but has properties such as whether the consequence is short or long term. A {@code Consequence} object is
- * instantiated using {@code Consequence.Builder} as per the "Builder" design pattern.
+ * Represents a side effect of some action, such as making a decision. Once constructed, the {@code Consequence} is
+ * immutable. This class is mostly a wrapper around a {@code String}, but has various properties regarding the
+ * consequence. A {@code Consequence} object is instantiated using {@code Consequence.Builder} and method chaining, as
+ * per the "Builder" design pattern.
  * @author Peyton Seigo
  * @see <a href="https://en.wikipedia.org/wiki/Builder_pattern">Builder Pattern</a>
+ * @see <a href="https://en.wikipedia.org/wiki/Method_chaining">Method Chaining</a>
  */
 public class Consequence {
     public static class Builder {
@@ -13,7 +17,16 @@ public class Consequence {
         private boolean isLongTerm = false;
         private boolean isShortTerm = false;
 
+        /**
+         * Constructor for builder of {@code Consequence} class. Given {@code description} must be a non-empty string.
+         * @param description description for the {@code Consequence}
+         * @throws EmptyDescriptionException if given {@code description} is an empty string
+         */
         public Builder(String description) {
+            if (description.isEmpty()) {
+                throw new EmptyDescriptionException();
+            }
+
             this.description = description;
         }
 
@@ -66,5 +79,21 @@ public class Consequence {
      */
     public String description() {
         return description;
+    }
+
+    /**
+     * Returns true if {@code this} is a long term consequence, otherwise false.
+     * @return true if long term, false if not long term
+     */
+    public Boolean isLongTerm() {
+        return isLongTerm;
+    }
+
+    /**
+     * Returns true if {@code this} is a short term consequence, otherwise false.
+     * @return true if short term, false if not short term
+     */
+    public Boolean isShortTerm() {
+        return isShortTerm;
     }
 }

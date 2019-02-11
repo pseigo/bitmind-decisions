@@ -1,5 +1,8 @@
 package ca.ubc.cs.cpsc210.entry;
 
-class EntryTest {
+/**
+ * @author Peyton Seigo
+ */
+public class EntryTest {
 
 }

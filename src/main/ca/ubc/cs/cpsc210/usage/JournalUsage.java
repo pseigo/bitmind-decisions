@@ -8,7 +8,7 @@ import ca.ubc.cs.cpsc210.entry.Journal;
 /**
   * Explores usage scenarios and functionality of the Choice class.
   */
-public class ChoiceUsage {
+public class JournalUsage {
     public static void main(String[] args) {
         Choice startNow = buildChoiceStartNow();
         Choice startTomorrow = buildChoiceStartTomorrow();

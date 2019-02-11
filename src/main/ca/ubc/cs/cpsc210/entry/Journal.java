@@ -47,7 +47,7 @@ public class Journal {
      * @throws NoEntryWithIDException if no {@code Entry} with given {@code id} exists
      */
     public Entry get(int id) throws NoEntryWithIDException {
-
+        return null;
     }
 
     /**
