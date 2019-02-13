@@ -5,11 +5,31 @@ import ca.ubc.cs.cpsc210.entry.Consequence;
 import ca.ubc.cs.cpsc210.entry.Entry;
 import ca.ubc.cs.cpsc210.entry.Journal;
 
+import java.time.ZonedDateTime;
+import java.time.format.TextStyle;
+import java.util.Locale;
+
 /**
   * Explores usage scenarios and functionality of the Choice class.
   */
 public class JournalUsage {
     public static void main(String[] args) {
+//        testJournal();
+        testDates();
+    }
+
+    private static void testDates() {
+        Locale locale = Locale.CANADA;
+        ZonedDateTime dateTime = ZonedDateTime.now();
+
+        System.out.println(dateTime.toString());
+        System.out.println(dateTime.getDayOfWeek().getDisplayName(TextStyle.SHORT, locale) + " "
+                + dateTime.getMonth().getDisplayName(TextStyle.SHORT, locale) + " "
+                + dateTime.getDayOfMonth() + " "
+                + dateTime.getYear());
+    }
+
+    private static void testJournal() {
         Choice startNow = buildChoiceStartNow();
         Choice startTomorrow = buildChoiceStartTomorrow();
 

@@ -3,5 +3,5 @@ package ca.ubc.cs.cpsc210.exceptions;
 /**
  * @author Peyton Seigo
  */
-public class NoEntryWithIDException extends RuntimeException {
+public class NoEntriesAddedException extends RuntimeException {
 }

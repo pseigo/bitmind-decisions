@@ -2,8 +2,6 @@ package ca.ubc.cs.cpsc210.entry;
 
 import ca.ubc.cs.cpsc210.exceptions.ElementNotFoundException;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +13,8 @@ public class Entry {
     private String problemDescription;
     private List<Choice> choices;
     private Choice decision = null;
-    private ZonedDateTime creationDateTime;
-    private ZonedDateTime completionDateTime = null;
-    private ZoneId localTimeZone = ZoneId.of("America/Vancouver");
+    private EntryDateTime creationDateTime;
+    private EntryDateTime completionDateTime = null;
     private Status status;
 
     /**
@@ -27,7 +24,7 @@ public class Entry {
     public Entry(String problemDescription) {
         this.problemDescription = problemDescription;
         choices = new ArrayList<>();
-        creationDateTime = ZonedDateTime.now(localTimeZone);
+        creationDateTime = EntryDateTime.now();
         status = Status.DRAFT;
     }
 
@@ -94,7 +91,7 @@ public class Entry {
      */
     public void complete() {
         setStatus(Status.COMPLETE);
-        completionDateTime = ZonedDateTime.now(localTimeZone);
+        completionDateTime = EntryDateTime.now();
     }
 
     /**

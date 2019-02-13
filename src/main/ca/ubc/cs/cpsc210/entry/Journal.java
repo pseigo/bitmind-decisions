@@ -1,9 +1,8 @@
 package ca.ubc.cs.cpsc210.entry;
 
+import ca.ubc.cs.cpsc210.exceptions.NoEntriesAddedException;
 import ca.ubc.cs.cpsc210.exceptions.NoEntryWithIDException;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,8 +12,7 @@ import java.util.Map;
  */
 public class Journal {
     private Map<Integer, Entry> entries;
-    private ZonedDateTime lastEntryDateTime = null;
-    private ZoneId localTimeZone = ZoneId.of("America/Vancouver");
+    private EntryDateTime lastEntryDateTime;
 
     /**
      * Constructor for {@code Journal} class.
@@ -24,7 +22,7 @@ public class Journal {
     }
 
     /**
-     * Adds given {@code entry} to this [@code Journal}'s entries.
+     * Adds a deep copy of given {@code entry} to this [@code Journal}'s entries.
      * @param entry entry added to {@code this}
      */
     public void add(Entry entry) {
@@ -32,7 +30,9 @@ public class Journal {
     }
 
     /**
-     * If {@code Entry} with given {@code id} exists, remove from {@code this}.
+     * If {@code Entry} with given {@code id} exists, remove from {@code this}. If most recent {@code Entry} was
+     * removed, updates date of last entry in {@code this} ({@code lastEntryDateShort}) to whichever {@code Entry} was
+     * added most recently in the {@code Journal}.
      * @param id id to match for
      * @throws NoEntryWithIDException if no {@code Entry} with given {@code id} exists
      */
@@ -54,15 +54,20 @@ public class Journal {
      * Returns number of entries in {@code this}.
      * @return number of entries
      */
-    public int count() {
+    public int size() {
         return 0;
     }
 
     /**
      * Returns the date an {@code Entry} was last added to {@code this}, formatted as a string.
      * @return last entry date formatted as a string
+     * @throws NoEntriesAddedException if no entries have been added to {@code this} so far; there is no history to show
      */
-    public String lastEntryDateTime() {
-        return "";
+    public String lastEntryDateShort() throws NoEntriesAddedException {
+        if (lastEntryDateTime == null) {
+            throw new NoEntriesAddedException();
+        }
+
+        return lastEntryDateTime.dateShort();
     }
 }
