@@ -55,8 +55,8 @@ public class Journal {
             lastEntryDateTime = null;
 
             for (int i = greatestIdWithEntry - 1; i != 0; --i) {
-                // TODO is this condition redundant at all? properties of Java maps?
-                if (entries.containsKey(i) && entries.get(i) != null) {
+                // Assume that entries does not contain null values
+                if (entries.containsKey(i)) {
                     lastEntryDateTime = entries.get(i).creationDateTime();
                     greatestIdWithEntry = i;
                     break;
@@ -79,7 +79,8 @@ public class Journal {
      * @throws NoEntryWithIDException if no {@code Entry} with given {@code id} exists
      */
     public Entry get(int id) throws NoEntryWithIDException {
-        if (entries.containsKey(id) && entries.get(id) != null) {
+        // Assume that entries does not contain null values
+        if (entries.containsKey(id)) {
             return entries.get(id);
         }
         throw new NoEntryWithIDException();
