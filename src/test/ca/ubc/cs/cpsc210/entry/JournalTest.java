@@ -116,7 +116,7 @@ public class JournalTest extends ModelTest {
         }
     }
 
-    // TODO: test removing entries and observing that the last created date rolls back to null or most recent existing
+    // TODO: use different creation dates
     @Test
     public void testRemoveEntriesLastEntryDateShift() {
         for (int i = 0; i != 3; ++i) {
@@ -130,6 +130,33 @@ public class JournalTest extends ModelTest {
         journal.remove(2);
         assertEquals(journal.get(1).creationDate(), journal.lastEntryDateShort());
         journal.remove(1);
+        try {
+            journal.lastEntryDateShort();
+            fail("didn't catch NoEntriesAddedException when expected");
+        } catch (NoEntriesAddedException e) {
+            // Expected behaviour
+        }
+    }
+
+    // TODO: use different creation dates
+    @Test
+    public void testRemoveEntriesFromMiddle() {
+        for (int i = 0; i != 3; ++i) {
+            Entry entry = new Entry("Entry with ID #" + (i + 1));
+            journal.add(entry);
+        }
+
+        try {
+            assertEquals(journal.get(3).creationDate(), journal.lastEntryDateShort());
+            journal.remove(1);
+            assertEquals(journal.get(3).creationDate(), journal.lastEntryDateShort());
+            journal.remove(2);
+            assertEquals(journal.get(3).creationDate(), journal.lastEntryDateShort());
+            journal.remove(3);
+        } catch (NoEntriesAddedException e) {
+            fail("caught " + e.toString() + " when unexpected");
+        }
+
         try {
             journal.lastEntryDateShort();
             fail("didn't catch NoEntriesAddedException when expected");
