@@ -22,7 +22,7 @@ public class EntryDateTimeTest extends ModelTest {
         testDate = ZonedDateTime.now().toLocalDate();
         assertEquals(formatShort(testDate), entryDateTime.dateShort());
     }
-    
+
     @Test
     public void testOf() {
         LocalDateTime testDateTime = LocalDateTime.of(2000, Month.APRIL, 14, 6, 23);
@@ -36,6 +36,8 @@ public class EntryDateTimeTest extends ModelTest {
         entryDateTime = EntryDateTime.now();
         LocalDateTime ldt = LocalDateTime.now();
         assertEquals(ldt.toLocalDate(), entryDateTime.toLocalDate());
-        assertEquals(ldt.toLocalTime(), entryDateTime.toLocalTime());
+        assertEquals(ldt.toLocalTime().getHour(), entryDateTime.toLocalTime().getHour(), 1);
+        assertEquals(ldt.toLocalTime().getMinute(), entryDateTime.toLocalTime().getMinute(), 1);
+        assertEquals(ldt.toLocalTime().getSecond(), entryDateTime.toLocalTime().getSecond(), 3);
     }
 }
