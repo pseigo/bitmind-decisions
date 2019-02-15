@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Peyton Seigo
  */
-public class JournalTest {
+public class JournalTest extends ModelTest {
     private Journal journal;
 
     @BeforeEach
@@ -21,6 +21,7 @@ public class JournalTest {
     @Test
     public void testConstructor() {
         assertEquals(0, journal.size());
+
         try {
             journal.lastEntryDateShort();
             fail("didn't catch NoEntriesAddedException when expected");
@@ -95,33 +96,49 @@ public class JournalTest {
     @Test
     public void testAddTwoEntriesByReference() {
         Entry entry = new Entry("Entry 1");
-        journal.add(entry); // version in journal should not reference our entry here. should be deep copied
-        journal.add(entry); // entry in journal should be distinct from the last line
-
-        Entry entryGet1 = journal.get(1);
-        Entry entryGet2 = journal.get(2);
-
-        assertEquals(2, journal.size());
-        assertNotEquals(entryGet1, entryGet2);
-        assertEquals(entryGet1.description(), entryGet2.description());
-        assertEquals(entryGet1.status(), entryGet2.status());
-
-        // Change status by class behaviour
-        entryGet1.complete();
-        assertEquals(Status.COMPLETE, entryGet1.status());
-        assertEquals(Status.DRAFT, entryGet2.status());
-        assertNotEquals(entryGet1.status(), entryGet2.status());
-
-        // Mutate status manually
-        entryGet1.setStatus(Status.INCOMPLETE);
-        entryGet2.setStatus(Status.DRAFT);
-        assertNotEquals(entryGet1.status(), entryGet2.status());
+        addTwoEntriesEnsureDeepCopy(entry, entry);
     }
 
     @Test
     public void testAddTwoEntryCopies() {
         Entry entry1 = new Entry("Entry 1");
-        Entry entry2 = new Entry("Entry 1"); // TODO: actually do a deep clone
+        Entry entry2 = new Entry(entry1);
+        addTwoEntriesEnsureDeepCopy(entry1, entry2);
+    }
+
+    @Test
+    public void testRemoveNonExistingEntry() {
+        try {
+            journal.remove(1);
+            fail("didnt catch NoEntryWithIDException when expected");
+        } catch (NoEntryWithIDException e) {
+            // Expected behaviour
+        }
+    }
+
+    // TODO: test removing entries and observing that the last created date rolls back to null or most recent existing
+    @Test
+    public void testRemoveEntriesLastEntryDateShift() {
+        for (int i = 0; i != 3; ++i) {
+            Entry entry = new Entry("Some problem");
+            journal.add(entry);
+        }
+
+        assertEquals(journal.get(3).creationDate(), journal.lastEntryDateShort());
+        journal.remove(3);
+        assertEquals(journal.get(2).creationDate(), journal.lastEntryDateShort());
+        journal.remove(2);
+        assertEquals(journal.get(1).creationDate(), journal.lastEntryDateShort());
+        journal.remove(1);
+        try {
+            journal.lastEntryDateShort();
+            fail("didn't catch NoEntriesAddedException when expected");
+        } catch (NoEntriesAddedException e) {
+            // Expected behaviour
+        }
+    }
+
+    private void addTwoEntriesEnsureDeepCopy(Entry entry1, Entry entry2) {
         journal.add(entry1); // version in journal should not reference our entry here. should be deep copied
         journal.add(entry2); // entry in journal should be distinct from the last line
 
@@ -133,13 +150,13 @@ public class JournalTest {
         assertEquals(entryGet1.description(), entryGet2.description());
         assertEquals(entryGet1.status(), entryGet2.status());
 
-        // Change status by class behaviour
+        // Indirectly change status using the class's exposed behaviour
         entryGet1.complete();
         assertEquals(Status.COMPLETE, entryGet1.status());
         assertEquals(Status.DRAFT, entryGet2.status());
         assertNotEquals(entryGet1.status(), entryGet2.status());
 
-        // Mutate status manually
+        // Mutate status directly
         entryGet1.setStatus(Status.INCOMPLETE);
         entryGet2.setStatus(Status.DRAFT);
         assertNotEquals(entryGet1.status(), entryGet2.status());

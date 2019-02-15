@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Peyton Seigo
  */
-public class ConsequenceTest {
+public class ConsequenceTest extends ModelTest {
     private Consequence consequence;
 
     @Test
@@ -31,7 +31,7 @@ public class ConsequenceTest {
         } catch(EmptyDescriptionException e) {
             // Expected behaviour
         }
-        assertEquals(null, consequence);
+        assertNull(consequence);
     }
 
     @Test

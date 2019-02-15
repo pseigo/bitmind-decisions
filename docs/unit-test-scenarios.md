@@ -16,15 +16,27 @@ A list of scenarios to test for each respective class.
 - Change regret value
 - Regret value exception
 - Lists: cons, pros, regrets; verify size
-  - Add
-  - Add 2 **references** to **same** object, observe that both are added, remove one, observe list changes in size, observe that can still lookup to find copy, observe that changes to one are not propogated to copies
-  - Add 2 **clones** of an object, observe that both are added, remove one, observe list changes in size, observe that can still lookup to find copy, observe that changes to one are not propogated to copies
+
+  - Add 2 **references** to **same** object, observe that both are added, remove one, observe list changes in size, observe that can still lookup to find copy, observe that changes to one are not propagated to copies
+  - Add 2 **clones** of an object, observe that both are added, remove one, observe list changes in size, observe that can still lookup to find copy, observe that changes to one are not propagated to copies
   - Remove, Consequence exists and size changes
   - Remove, Consequence not exists and size does not change
   - Get
   - Get exception
 
 ## model.Entry
+
+- Constructor: description, no choices, creationDateTime, status is draft, not complete
+- Get non-existent choice
+- Add and get choice
+- Add, remove, get non existent
+- Complete, check status
+- Set status manually, check each one
+- test completionDate
+  - same as creationDate
+  - different from creationDate
+- Add 2 **references** to **same** object, observe that both are added, remove one, observe that can still lookup to find copy, observe that changes to one are not propagated to copies
+- Add 2 **clones** of an object, observe that both are added, remove one, observe that can still lookup to find copy, observe that changes to one are not propagated to copies
 
 ## model.Journal
 
@@ -38,6 +50,11 @@ A list of scenarios to test for each respective class.
   - Add 2 **references** to **same** Entry object, observe that both are added, remove one, observe list changes in size, observe that changes to one are not propogated to copies
   - Add 2 **clones** of an Entry object, observe that both are added, remove one, observe list changes in size, observe that changes to one are not propogated to copies
 
+## model.entryDateTime
+
+- now: expected dateShort format, same localDate + localTime as now
+- of: expected dateShort format, same localDate + localTime as set
+
 ## model.Status
 
-Does not need to be tested unless additional behaviour is implemented.
+Dtested unless additional behaviour is implemented.

@@ -1,9 +1,7 @@
 package ca.ubc.cs.cpsc210.entry;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.TextStyle;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 /**
@@ -19,18 +17,43 @@ public class EntryDateTime {
         this.dateTime = dateTime;
     }
 
-    public static EntryDateTime of(LocalDateTime localDateTime) {
-        return new EntryDateTime(ZonedDateTime.of(localDateTime, LOCAL_TIME_ZONE));
+    /**
+     * Returns an instance of {@code EntryDateTime} from a given date and time.
+     * @return the entry date-time
+     */
+    public static EntryDateTime of(LocalDateTime dateTime) {
+        return new EntryDateTime(ZonedDateTime.of(dateTime, LOCAL_TIME_ZONE));
     }
 
+    /**
+     * Returns an instance of {@code EntryDateTime} from the system clock.
+     * @return the entry date-time
+     */
     public static EntryDateTime now() {
         return new EntryDateTime(ZonedDateTime.now(LOCAL_TIME_ZONE));
     }
 
+    /**
+     * Returns the set date in a short format.
+     * @return the formatted date
+     */
     public String dateShort() {
-        return dateTime.getDayOfWeek().getDisplayName(TextStyle.SHORT, LOCALE) + " "
-                + dateTime.getMonth().getDisplayName(TextStyle.SHORT, LOCALE) + " "
-                + dateTime.getDayOfMonth() + " "
-                + dateTime.getYear();
+        return dateTime.format(DateTimeFormatter.ofPattern("E MMM d u", LOCALE));
+    }
+
+    /**
+     * Returns the set date.
+     * @return the set date
+     */
+    public LocalDate toLocalDate() {
+        return dateTime.toLocalDate();
+    }
+
+    /**
+     * Returns the set time.
+     * @return the set time
+     */
+    public LocalTime toLocalTime() {
+        return dateTime.toLocalTime();
     }
 }

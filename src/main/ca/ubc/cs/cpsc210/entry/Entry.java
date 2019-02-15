@@ -1,8 +1,10 @@
 package ca.ubc.cs.cpsc210.entry;
 
 import ca.ubc.cs.cpsc210.exceptions.ElementNotFoundException;
+import ca.ubc.cs.cpsc210.exceptions.EntryIncompleteException;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -12,7 +14,7 @@ import java.util.List;
 public class Entry {
     private String problemDescription;
     private List<Choice> choices;
-    private Choice decision = null;
+//    private Choice decision = null; // TODO implement Entry decision functionality
     private EntryDateTime creationDateTime;
     private EntryDateTime completionDateTime = null;
     private Status status;
@@ -29,6 +31,22 @@ public class Entry {
     }
 
     /**
+     * Constructs an {@code Entry} as a deep copy of given {@code Entry}. {@code String}s and {@code Consequence}s are
+     * copied by reference as they are both immutable.
+     * @param that the object to make a deep copy from
+     */
+    public Entry(Entry that) {
+        this.problemDescription = that.problemDescription;
+        this.choices = new ArrayList<>();
+        for (Choice choice : that.choices) {
+            addChoice(new Choice(choice));
+        }
+        this.creationDateTime = that.creationDateTime;
+        this.completionDateTime = that.completionDateTime;
+        this.status = that.status;
+    }
+
+    /**
      * Returns description of {@code this}.
      * @return description of {@code this}
      */
@@ -37,37 +55,45 @@ public class Entry {
     }
 
     /**
-     * Adds given {@code choice} to this {@code Entry}'s choices.
+     * Adds a deep copy of given {@code choice} to this {@code Entry}'s choices.
      * @param choice choice added to {@code this}
      */
     public void addChoice(Choice choice) {
-        choices.add(choice);
+        // Calling deep copy constructor
+        Choice toAdd = new Choice(choice);
+        choices.add(toAdd);
     }
 
     /**
-     * From {@code choices}, returns first occurrence of {@code Consequence} such that its description equals given
+     * From {@code choices}, returns first occurrence of {@code Choice} such that its description equals given
      * {@code description}.
      * @param description description to match for
-     * @return {@code Consequence} with its description equal to given {@code description}
-     * @throws ElementNotFoundException if no {@code Consequence} with given {@code description} is found
+     * @return {@code Choice} with its description equal to given {@code description}
+     * @throws ElementNotFoundException if no {@code Choice} with given {@code description} is found
      */
     public Choice getChoice(String description) throws ElementNotFoundException {
-        return null;
+        for (Choice choice : choices) {
+            if (choice.description().equals(description)) {
+                return choice;
+            }
+        }
+
+        throw new ElementNotFoundException();
     }
 
     /**
-     * In {@code choices}, removes first occurrence of {@code Consequence} such that its description equals given
+     * In {@code choices}, removes first occurrence of {@code Choice} such that its description equals given
      * {@code description}. If no match is found, {@code this} is not modified.
      * @param description description to match for
      */
     public void removeChoice(String description) {
-//        Iterator<Consequence> it = choices.iterator();
-//        while (it.hasNext()) {
-//            if (it.next().description().equals(description)) {
-//                it.remove();
-//                return;
-//            }
-//        }
+        Iterator<Choice> it = choices.iterator();
+        while (it.hasNext()) {
+            if (it.next().description().equals(description)) {
+                it.remove();
+                return;
+            }
+        }
     }
 
     /**
@@ -83,30 +109,48 @@ public class Entry {
      * @param status the new status
      */
     public void setStatus(Status status) {
-        this.status = status;
+        if (status == Status.COMPLETE) {
+            complete();
+        } else {
+            this.status = status;
+            completionDateTime = null;
+        }
     }
 
     /**
      * Sets {@code Status} to {@code COMPLETE} and sets {@code completionDateTime} to now.
      */
     public void complete() {
-        setStatus(Status.COMPLETE);
+        this.status = Status.COMPLETE;
         completionDateTime = EntryDateTime.now();
     }
 
     /**
-     * Returns the date {@code this} was created, formatted as a string.
+     * Returns the date that {@code this} was created, formatted as a string.
      * @return creation date formatted as a string
      */
     public String creationDate() {
-        return "";
+        return creationDateTime.dateShort();
+    }
+
+    /**
+     * Returns the date and time that {@code this} was created.
+     * @return creation date and time
+     */
+    public EntryDateTime creationDateTime() {
+        return creationDateTime;
     }
 
     /**
      * If {@code this} has been completed, returns the appropriate date formatted as a string.
      * @return completion date formatted as a string
+     * @throws EntryIncompleteException if entry status is not {@code COMPLETE}
      */
-    public String completionDate() {
-        return "";
+    public String completionDate() throws EntryIncompleteException {
+        if (status != Status.COMPLETE) {
+            throw new EntryIncompleteException();
+        }
+
+        return completionDateTime.dateShort();
     }
 }

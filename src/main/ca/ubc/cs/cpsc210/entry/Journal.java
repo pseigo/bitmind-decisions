@@ -12,6 +12,8 @@ import java.util.Map;
  */
 public class Journal {
     private Map<Integer, Entry> entries;
+    private int nextId;
+    private int greatestIdWithEntry;
     private EntryDateTime lastEntryDateTime;
 
     /**
@@ -19,6 +21,8 @@ public class Journal {
      */
     public Journal() {
         entries = new HashMap<>();
+        nextId = 1;
+        greatestIdWithEntry = 0;
     }
 
     /**
@@ -26,18 +30,46 @@ public class Journal {
      * @param entry entry added to {@code this}
      */
     public void add(Entry entry) {
-
+        // Calling deep copy constructor
+        Entry toAdd = new Entry(entry);
+        entries.put(nextId, toAdd);
+        greatestIdWithEntry = nextId;
+        ++nextId;
+        lastEntryDateTime = entry.creationDateTime();
     }
 
     /**
      * If {@code Entry} with given {@code id} exists, remove from {@code this}. If most recent {@code Entry} was
-     * removed, updates date of last entry in {@code this} ({@code lastEntryDateShort}) to whichever {@code Entry} was
+     * removed, updates date of last entry in {@code this} ({@code lastEntryDateTime}) to whichever {@code Entry} was
      * added most recently in the {@code Journal}.
      * @param id id to match for
      * @throws NoEntryWithIDException if no {@code Entry} with given {@code id} exists
      */
     public void remove(int id) throws NoEntryWithIDException {
+        if (!entries.containsKey(id)) {
+            throw new NoEntryWithIDException();
+        }
 
+        if (id == greatestIdWithEntry) {
+            // Stays null if never finds an existing entry
+            lastEntryDateTime = null;
+
+            for (int i = greatestIdWithEntry - 1; i != 0; --i) {
+                // TODO is this condition redundant at all? properties of Java maps?
+                if (entries.containsKey(i) && entries.get(i) != null) {
+                    lastEntryDateTime = entries.get(i).creationDateTime();
+                    greatestIdWithEntry = i;
+                    break;
+                }
+            }
+        }
+
+        // We needed greatestIdWithEntry for our search, but we didn't find an entry, so set the greatest ID to 0.
+        if (lastEntryDateTime == null) {
+            greatestIdWithEntry = 0;
+        }
+
+        entries.remove(id);
     }
 
     /**
@@ -47,7 +79,10 @@ public class Journal {
      * @throws NoEntryWithIDException if no {@code Entry} with given {@code id} exists
      */
     public Entry get(int id) throws NoEntryWithIDException {
-        return null;
+        if (entries.containsKey(id) && entries.get(id) != null) {
+            return entries.get(id);
+        }
+        throw new NoEntryWithIDException();
     }
 
     /**
@@ -55,7 +90,7 @@ public class Journal {
      * @return number of entries
      */
     public int size() {
-        return 0;
+        return entries.size();
     }
 
     /**

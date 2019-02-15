@@ -32,10 +32,29 @@ public class Choice {
     }
 
     /**
+     * Constructs a {@code Choice} as a deep copy of given {@code Choice}. {@code String}s and {@code Consequence}s are
+     * copied by reference as they are both immutable.
+     * @param that the object to make a deep copy from
+     */
+    public Choice(Choice that) {
+        this(that.description);
+        for (Consequence cons : that.pros) {
+            addPro(cons);
+        }
+        for (Consequence cons : that.cons) {
+            addCon(cons);
+        }
+        for (Consequence cons : that.regrets) {
+            addRegret(cons);
+        }
+        this.regretValue = that.regretValue;
+    }
+
+    /**
      * Returns the description of this {@code Choice}.
      * @return the description for this {@code Choice} object
      */
-    public String getDescription() {
+    public String description() {
         return description;
     }
 
@@ -43,7 +62,7 @@ public class Choice {
      * Returns the regret value.
      * @return the regret value, an {@code int} in [0, 100]
      */
-    public int getRegretValue() {
+    public int regretValue() {
         return regretValue;
     }
 
@@ -85,7 +104,7 @@ public class Choice {
      * @return number of pros
      */
     public int prosCount() {
-        return 0;
+        return pros.size();
     }
 
     /**
@@ -93,7 +112,7 @@ public class Choice {
      * @return number of cons
      */
     public int consCount() {
-        return 0;
+        return cons.size();
     }
 
     /**
@@ -101,7 +120,7 @@ public class Choice {
      * @return number of regrets
      */
     public int regretsCount() {
-        return 0;
+        return regrets.size();
     }
 
     /**
@@ -112,6 +131,10 @@ public class Choice {
      * @throws OutOfBoundsException if {@code value} is not in [0, 100]
      */
     public void setRegretValue(int value) throws OutOfBoundsException {
+        if (value < 0 || value > 100) {
+            throw new OutOfBoundsException();
+        }
+
         this.regretValue = value;
     }
 
@@ -184,15 +207,20 @@ public class Choice {
             }
         }
 
-        return null;
+        throw new ElementNotFoundException();
     }
 
     /**
      * If not already in {@code list}, adds given {@code consequence} to {@code list}. Otherwise, does nothing.
-     * @param consequence {@code Consequence} added to {@code cons}
+     * @param toAdd {@code Consequence} added to {@code cons}
      */
-    private void add(List<Consequence> list, Consequence consequence) {
-
+    private void add(List<Consequence> list, Consequence toAdd) {
+        for (Consequence cons : list) {
+            if (cons.description().equals(toAdd.description())) {
+                return;
+            }
+        }
+        list.add(toAdd);
     }
 
     /**
