@@ -110,8 +110,12 @@ public class Journal {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Journal journal = (Journal) o;
         return nextId == journal.nextId
                 && greatestIdWithEntry == journal.greatestIdWithEntry
