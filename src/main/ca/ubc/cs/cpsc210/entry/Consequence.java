@@ -2,6 +2,8 @@ package ca.ubc.cs.cpsc210.entry;
 
 import ca.ubc.cs.cpsc210.exceptions.EmptyDescriptionException;
 
+import java.util.Objects;
+
 /**
  * Represents a side effect of some action, such as making a decision. Once constructed, the {@code Consequence} is
  * immutable. This class is mostly a wrapper around a {@code String}, but has various properties regarding the
@@ -12,6 +14,7 @@ import ca.ubc.cs.cpsc210.exceptions.EmptyDescriptionException;
  * @see <a href="https://en.wikipedia.org/wiki/Method_chaining">Method Chaining</a>
  */
 public class Consequence {
+
     public static class Builder {
         private String description;
         private boolean isLongTerm = false;
@@ -95,5 +98,20 @@ public class Consequence {
      */
     public Boolean isShortTerm() {
         return isShortTerm;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Consequence that = (Consequence) o;
+        return isLongTerm == that.isLongTerm
+                && isShortTerm == that.isShortTerm
+                && description.equals(that.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, isLongTerm, isShortTerm);
     }
 }

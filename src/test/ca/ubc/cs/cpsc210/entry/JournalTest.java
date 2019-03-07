@@ -54,7 +54,7 @@ public class JournalTest extends ModelTest {
         // Entry in journal should be a deep copy; not the same object
         try {
             Entry entryGet = journal.get(1);
-            assertNotEquals(entryGet, entry);
+            assertSame(entryGet, entry); // compare by reference, not using equals()
             assertEquals(entryGet.description(), entry.description());
             assertEquals(entryGet.creationDate(), entry.creationDate());
             assertEquals(entryGet.status(), entry.status());
@@ -173,7 +173,7 @@ public class JournalTest extends ModelTest {
         Entry entryGet2 = journal.get(2);
 
         assertEquals(2, journal.size());
-        assertNotEquals(entryGet1, entryGet2);
+        assertSame(entryGet1, entryGet2); // compare by reference, not using equals()
         assertEquals(entryGet1.description(), entryGet2.description());
         assertEquals(entryGet1.status(), entryGet2.status());
 

@@ -6,6 +6,7 @@ import ca.ubc.cs.cpsc210.exceptions.OutOfBoundsException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Represents a particular choice for an {@code Entry}. Has a description and properties such as pros and cons that
@@ -237,5 +238,22 @@ public class Choice {
                 return;
             }
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Choice choice = (Choice) o;
+        return regretValue == choice.regretValue
+                && description.equals(choice.description)
+                && pros.equals(choice.pros)
+                && cons.equals(choice.cons)
+                && regrets.equals(choice.regrets);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, pros, cons, regrets, regretValue);
     }
 }

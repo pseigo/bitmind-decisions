@@ -5,6 +5,7 @@ import ca.ubc.cs.cpsc210.exceptions.NoEntryWithIDException;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Represents a collection of entries.
@@ -105,5 +106,21 @@ public class Journal {
         }
 
         return lastEntryDateTime.dateShort();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Journal journal = (Journal) o;
+        return nextId == journal.nextId
+                && greatestIdWithEntry == journal.greatestIdWithEntry
+                && Objects.equals(entries, journal.entries)
+                && Objects.equals(lastEntryDateTime, journal.lastEntryDateTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(entries, nextId, greatestIdWithEntry, lastEntryDateTime);
     }
 }

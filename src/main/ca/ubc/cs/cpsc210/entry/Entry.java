@@ -6,6 +6,7 @@ import ca.ubc.cs.cpsc210.exceptions.EntryIncompleteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Represents a problem with an arbitrary number of choices.
@@ -152,5 +153,22 @@ public class Entry {
         }
 
         return completionDateTime.dateShort();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Entry entry = (Entry) o;
+        return problemDescription.equals(entry.problemDescription)
+                && choices.equals(entry.choices)
+                && creationDateTime.equals(entry.creationDateTime)
+                && Objects.equals(completionDateTime, entry.completionDateTime)
+                && status == entry.status;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(problemDescription, choices, creationDateTime, completionDateTime, status);
     }
 }
