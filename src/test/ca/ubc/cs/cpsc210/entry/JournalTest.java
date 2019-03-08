@@ -188,4 +188,35 @@ public class JournalTest extends ModelTest {
         entryGet2.setStatus(Status.DRAFT);
         assertNotEquals(entryGet1.status(), entryGet2.status());
     }
+
+    @Test
+    public void testEquals() {
+        // Same instance
+        assertEquals(journal, journal);
+        assertSame(journal, journal);
+
+        // Misc. (for that test coverage)
+        assertFalse(journal.equals(null));
+        assertFalse(journal.equals(new Object()));
+
+        // New object with identical (equal) fields
+        Entry entry = new Entry("Entry description");
+        entry.complete();
+
+        journal.add(entry);
+
+        Journal sameFields = new Journal();
+        sameFields.add(new Entry(entry));
+
+        assertEquals(journal, sameFields);
+        assertEquals(journal.hashCode(), sameFields.hashCode());
+        assertNotSame(journal, sameFields);
+
+        // New objects with different (not equal) parameters
+        // d = "different" to indicate what was changed
+        Journal dEntries = new Journal();
+        dEntries.add(entry);
+        dEntries.add(new Entry("Entry description"));
+        assertNotEquals(journal, dEntries);
+    }
 }

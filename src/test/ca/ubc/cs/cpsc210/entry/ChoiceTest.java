@@ -42,6 +42,7 @@ public class ChoiceTest extends ModelTest {
         choice.setRegretValue(43);
 
         Choice deepCopy = new Choice(choice);
+        assertEquals(choice, deepCopy);
 
         // compare properties of deep copy to original
         assertEquals(choice.description(), deepCopy.description());
@@ -307,6 +308,44 @@ public class ChoiceTest extends ModelTest {
         } catch (ElementNotFoundException e) {
             // Expected behaviour
         }
+    }
+
+    @Test
+    public void testEquals() {
+        // Same instance
+        assertEquals(choice, choice);
+        assertSame(choice, choice);
+
+        // Misc. (for that test coverage)
+        assertFalse(choice.equals(null));
+        assertFalse(choice.equals(new Object()));
+
+        // New object with identical (equal) fields
+        Choice sameFields = new Choice("Choice description");
+        assertEquals(choice, sameFields);
+        assertEquals(choice.hashCode(), sameFields.hashCode());
+        assertNotSame(choice, sameFields);
+
+        // New objects with different (not equal) parameters
+        // d = "different" to indicate what was changed
+        Choice dDescription = new Choice("Different");
+        assertNotEquals(choice, dDescription);
+
+        Choice dPros = new Choice("Choice description");
+        dPros.addPro(new Consequence.Builder("cons").build());
+        assertNotEquals(choice, dPros);
+
+        Choice dCons = new Choice("Choice description");
+        dCons.addCon(new Consequence.Builder("cons").build());
+        assertNotEquals(choice, dCons);
+
+        Choice dRegrets = new Choice("Choice description");
+        dRegrets.addRegret(new Consequence.Builder("cons").build());
+        assertNotEquals(choice, dRegrets);
+
+        Choice dRegretValue = new Choice("Choice description");
+        dRegretValue.setRegretValue(42);
+        assertNotEquals(choice, dRegretValue);
     }
     
 }

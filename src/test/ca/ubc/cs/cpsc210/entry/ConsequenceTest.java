@@ -67,4 +67,55 @@ public class ConsequenceTest extends ModelTest {
         assertTrue(consequence.isLongTerm());
         assertTrue(consequence.isShortTerm());
     }
+
+    @Test
+        public void testEquals() {
+        Consequence allParams= new Consequence.Builder("Foobar")
+                .isLongTerm()
+                .isShortTerm()
+                .build();
+
+        // Same instance
+        assertEquals(allParams, allParams);
+        assertSame(allParams, allParams);
+
+        // Misc. (for that test coverage)
+        assertFalse(allParams.equals(null));
+        assertFalse(allParams.equals(new Object()));
+
+        // New object with identical (equal) fields
+        Consequence sameFields = new Consequence.Builder("Foobar")
+                .isLongTerm()
+                .isShortTerm()
+                .build();
+        assertEquals(allParams, sameFields);
+        assertEquals(allParams.hashCode(), sameFields.hashCode());
+        assertNotSame(allParams, sameFields);
+
+        // New objects with different (not equal) parameters
+        // d = "different" to indicate what was changed
+        Consequence dDescription = new Consequence.Builder("Different description")
+                .isShortTerm()
+                .isLongTerm()
+                .build();
+        assertNotEquals(allParams, dDescription);
+
+        Consequence dLongTerm = new Consequence.Builder("Foobar")
+                .isShortTerm()
+                .build();
+        assertNotEquals(allParams, dLongTerm);
+
+        Consequence dShortTerm = new Consequence.Builder("Foobar")
+                .isLongTerm()
+                .build();
+        assertNotEquals(allParams, dShortTerm);
+
+        Consequence dShortLongTerm = new Consequence.Builder("Foobar")
+                .build();
+        assertNotEquals(allParams, dShortLongTerm);
+
+        Consequence dAll = new Consequence.Builder("All different")
+                .build();
+        assertNotEquals(allParams, dAll);
+    }
 }

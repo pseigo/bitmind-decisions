@@ -20,13 +20,13 @@ public class EntryTest extends ModelTest {
 
     @BeforeEach
     public void setup() {
-        entry = new Entry("This is the problem description");
+        entry = new Entry("Entry description");
         dateTimeNow = EntryDateTime.now();
     }
 
     @Test
     public void testConstructor() {
-        assertEquals("This is the problem description", entry.description());
+        assertEquals("Entry description", entry.description());
         assertEquals(Status.DRAFT, entry.status());
 
         LocalDate dateNow = ZonedDateTime.now().toLocalDate();
@@ -204,5 +204,39 @@ public class EntryTest extends ModelTest {
         } catch (ElementNotFoundException e) {
             // Expected behaviour
         }
+    }
+
+    @Test
+    public void testEquals() {
+        // Same instance
+        assertEquals(entry, entry);
+        assertSame(entry, entry);
+
+        // Misc. (for that test coverage)
+        assertFalse(entry.equals(null));
+        assertFalse(entry.equals(new Object()));
+
+        // New object with identical (equal) fields
+        Entry sameFields = new Entry("Entry description");
+        assertEquals(entry, sameFields);
+        assertNotSame(entry, sameFields);
+
+        // New objects with different (not equal) parameters
+        // d = "different" to indicate what was changed
+        Entry dDescription = new Entry("Different");
+        assertNotEquals(entry, dDescription);
+
+        Entry dChoices = new Entry("Entry description");
+        dChoices.addChoice(new Choice("Choice description"));
+        assertNotEquals(entry, dChoices);
+
+        Entry dComplete = new Entry("Entry description");
+        dComplete.complete();
+        assertNotEquals(entry, dComplete);
+
+        Entry dStatus = new Entry("Entry description");
+        dStatus.setStatus(Status.INCOMPLETE);
+        assertNotEquals(entry, dStatus);
+
     }
 }
