@@ -3,10 +3,7 @@ package ca.ubc.cs.cpsc210.entry;
 import ca.ubc.cs.cpsc210.exceptions.ElementNotFoundException;
 import ca.ubc.cs.cpsc210.exceptions.EntryIncompleteException;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Represents a problem with an arbitrary number of choices.
@@ -31,6 +28,27 @@ public class Entry {
         status = Status.DRAFT;
     }
 
+    // TODO test
+    /**
+     * Constructor for {@code Entry} class, initialized with given description, creation and completion dates, and a
+     * status. {@code completionDateTime} is set to {@code null} if {@code status != Status.COMPLETE}.
+     * @param problemDescription description of this {@code Entry}'s problem
+     * @param creationDateTime date this {@code Entry} was created
+     * @param completionDateTime if {@code COMPLETE}, date this {@code Entry} was completed. Else null
+     * @param status status of this {@code Entry}
+     */
+    public Entry(String problemDescription,
+                 EntryDateTime creationDateTime,
+                 EntryDateTime completionDateTime,
+                 Status status) {
+
+        this.problemDescription = problemDescription;
+        choices = new ArrayList<>();
+        this.creationDateTime = creationDateTime;
+        this.completionDateTime = status == Status.COMPLETE ? completionDateTime : null;
+        this.status = status;
+    }
+
     /**
      * Constructs an {@code Entry} as a deep copy of given {@code Entry}. {@code String}s and {@code Consequence}s are
      * copied by reference as they are both immutable.
@@ -53,6 +71,15 @@ public class Entry {
      */
     public String description() {
         return problemDescription;
+    }
+
+    // TODO test
+    /**
+     * Returns an unmodifiable map of choices.
+     * @return choices
+     */
+    public List<Choice> choices() {
+        return Collections.unmodifiableList(choices);
     }
 
     /**
@@ -155,6 +182,15 @@ public class Entry {
         return completionDateTime.dateShort();
     }
 
+    // TODO test
+    /**
+     * If {@code this} entry is complete, returns the completion date and time. Otherwise, returns null.
+     * @return creation date and time
+     */
+    public EntryDateTime completionDateTime() {
+        return completionDateTime;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -166,13 +202,11 @@ public class Entry {
         Entry entry = (Entry) o;
         return problemDescription.equals(entry.problemDescription)
                 && choices.equals(entry.choices)
-                && creationDateTime.equals(entry.creationDateTime)
-                && Objects.equals(completionDateTime, entry.completionDateTime)
                 && status == entry.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(problemDescription, choices, creationDateTime, completionDateTime, status);
+        return Objects.hash(problemDescription, choices, status);
     }
 }

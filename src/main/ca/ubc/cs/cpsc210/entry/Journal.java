@@ -2,7 +2,9 @@ package ca.ubc.cs.cpsc210.entry;
 
 import ca.ubc.cs.cpsc210.exceptions.NoEntriesAddedException;
 import ca.ubc.cs.cpsc210.exceptions.NoEntryWithIDException;
+import ca.ubc.cs.cpsc210.exceptions.OutOfBoundsException;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -18,7 +20,7 @@ public class Journal {
     private EntryDateTime lastEntryDateTime;
 
     /**
-     * Constructor for {@code Journal} class.
+     * Constructor for {@code Journal} class. The first entry has ID 1.
      */
     public Journal() {
         entries = new HashMap<>();
@@ -27,16 +29,56 @@ public class Journal {
     }
 
     /**
-     * Adds a deep copy of given {@code entry} to this [@code Journal}'s entries.
-     * @param entry entry added to {@code this}
+     * Returns an unmodifiable map of entries.
+     * @return entries
      */
-    public void add(Entry entry) {
+    public Map<Integer, Entry> entries() {
+        return Collections.unmodifiableMap(entries);
+    }
+
+    // TODO test adding entry at next available ID (before and at greatestIdWithEntry)
+    /**
+     * Adds a deep copy of given {@code entry} to this [@code Journal}'s entries at the first available id after
+     * the greatest ID that maps to an entry (greatestIdWithEntry). This will not override any previously created
+     * entries and will preserve any non-mapped IDs in between entries. This method returns the ID where {@code entry}
+     * is added.
+     * @param entry entry added to {@code this}
+     * @return entry ID in this journal where given entry was added
+     */
+    public int add(Entry entry) {
         // Calling deep copy constructor
         Entry toAdd = new Entry(entry);
-        entries.put(nextId, toAdd);
-        greatestIdWithEntry = nextId;
-        ++nextId;
+        int toAddId = (nextId <= greatestIdWithEntry) ? greatestIdWithEntry + 1 : nextId;
+        assert(!entries.containsKey(greatestIdWithEntry));
+
+        entries.put(toAddId, toAdd);
+        greatestIdWithEntry = toAddId;
+        nextId = toAddId + 1;
         lastEntryDateTime = entry.creationDateTime();
+
+        return toAddId;
+    }
+
+    // TODO implement and test
+    /**
+     * Adds a deep copy of given {@code entry} at entry {@code id}. Given {@code id} must be greater than or equal to 1.
+     * Replaces any entry that exists at {@code id}.
+     * @param id entry ID to add entry to or overwrite
+     * @param entry entry added to {@code this} at {@code id}
+     * @throws OutOfBoundsException if id < 1
+     */
+    public void put(int id, Entry entry) {
+        if (id < 1) {
+            throw new OutOfBoundsException();
+        }
+
+        Entry toAdd = new Entry(entry);
+        entries.put(id, entry);
+        if (id > greatestIdWithEntry) {
+            greatestIdWithEntry = id;
+            nextId = id + 1;
+            // TODO need to deal with lastEntryDateTime?
+        }
     }
 
     /**
@@ -119,12 +161,11 @@ public class Journal {
         Journal journal = (Journal) o;
         return nextId == journal.nextId
                 && greatestIdWithEntry == journal.greatestIdWithEntry
-                && Objects.equals(entries, journal.entries)
-                && Objects.equals(lastEntryDateTime, journal.lastEntryDateTime);
+                && Objects.equals(entries, journal.entries);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(entries, nextId, greatestIdWithEntry, lastEntryDateTime);
+        return Objects.hash(entries, nextId, greatestIdWithEntry);
     }
 }

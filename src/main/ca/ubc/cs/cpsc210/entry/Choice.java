@@ -3,10 +3,7 @@ package ca.ubc.cs.cpsc210.entry;
 import ca.ubc.cs.cpsc210.exceptions.ElementNotFoundException;
 import ca.ubc.cs.cpsc210.exceptions.OutOfBoundsException;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Represents a particular choice for an {@code Entry}. Has a description and properties such as pros and cons that
@@ -65,6 +62,33 @@ public class Choice {
      */
     public int regretValue() {
         return regretValue;
+    }
+
+    // TODO test
+    /**
+     * Returns an unmodifiable list of pros.
+     * @return pros
+     */
+    public List<Consequence> pros() {
+        return Collections.unmodifiableList(pros);
+    }
+
+    // TODO test
+    /**
+     * Returns an unmodifiable list of cons.
+     * @return pros
+     */
+    public List<Consequence> cons() {
+        return Collections.unmodifiableList(cons);
+    }
+
+    // TODO test
+    /**
+     * Returns an unmodifiable list of regrets.
+     * @return regrets
+     */
+    public List<Consequence> regrets() {
+        return Collections.unmodifiableList(regrets);
     }
 
     /**
