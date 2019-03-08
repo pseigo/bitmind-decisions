@@ -28,6 +28,7 @@ public class Journal {
         greatestIdWithEntry = 0;
     }
 
+    // TODO test
     /**
      * Returns an unmodifiable map of entries.
      * @return entries
@@ -49,12 +50,12 @@ public class Journal {
         // Calling deep copy constructor
         Entry toAdd = new Entry(entry);
         int toAddId = (nextId <= greatestIdWithEntry) ? greatestIdWithEntry + 1 : nextId;
-        assert(!entries.containsKey(greatestIdWithEntry));
+        assert(!entries.containsKey(toAddId));
 
         entries.put(toAddId, toAdd);
         greatestIdWithEntry = toAddId;
         nextId = toAddId + 1;
-        lastEntryDateTime = entry.creationDateTime();
+        lastEntryDateTime = toAdd.creationDateTime();
 
         return toAddId;
     }

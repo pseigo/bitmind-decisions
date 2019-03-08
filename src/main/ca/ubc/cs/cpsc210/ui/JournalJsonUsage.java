@@ -4,7 +4,6 @@ import ca.ubc.cs.cpsc210.entry.Choice;
 import ca.ubc.cs.cpsc210.entry.Consequence;
 import ca.ubc.cs.cpsc210.entry.Entry;
 import ca.ubc.cs.cpsc210.entry.Journal;
-import ca.ubc.cs.cpsc210.parsers.JournalParser;
 import ca.ubc.cs.cpsc210.persistence.JsonEncoder;
 import org.json.JSONObject;
 
@@ -17,13 +16,9 @@ public class JournalJsonUsage {
     public static void main(String[] args) {
         Journal journal = testJournal();
         JSONObject entriesMap = JsonEncoder.journalToJson(journal);
-        Journal journal2 = JournalParser.parse(entriesMap.toString());
-        JSONObject entriesMap2 = JsonEncoder.journalToJson(journal2);
 
         System.out.println("JSON representation of Journal:\n");
         System.out.println(entriesMap.toString(4));
-        System.out.println("JSON representation of Journal:\n");
-        System.out.println(entriesMap2.toString(4));
     }
 
     private static Journal testJournal() {

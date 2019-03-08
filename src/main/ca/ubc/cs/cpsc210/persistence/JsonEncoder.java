@@ -80,7 +80,7 @@ public class JsonEncoder {
         }
         JSONArray regretsList = new JSONArray();
         for (Consequence consequence : choice.regrets()) {
-            prosList.put(consequenceToJson(consequence));
+            regretsList.put(consequenceToJson(consequence));
         }
 
         choiceJson.put("pros", prosList);
