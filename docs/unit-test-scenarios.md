@@ -2,6 +2,13 @@
 
 A list of scenarios to test for each respective class.
 
+## `equals` and `hashCode`
+
+- Equals, same: same instance
+- Equals, not same: via new object with same params
+- Equals, not same: via new object with clone constructor
+- Test each field
+
 ## model.Consequence
 
 - Valid description
