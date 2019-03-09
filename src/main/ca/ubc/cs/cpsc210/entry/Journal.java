@@ -49,7 +49,7 @@ public class Journal {
         // Calling deep copy constructor
         Entry toAdd = new Entry(entry);
         int toAddId = (nextId <= greatestIdWithEntry) ? greatestIdWithEntry + 1 : nextId;
-        assert(!entries.containsKey(toAddId));
+//        assert(!entries.containsKey(toAddId));
 
         entries.put(toAddId, toAdd);
         greatestIdWithEntry = toAddId;
