@@ -202,11 +202,12 @@ public class Entry {
         Entry entry = (Entry) o;
         return problemDescription.equals(entry.problemDescription)
                 && choices.equals(entry.choices)
+                && creationDateTime.equals(entry.creationDateTime)
                 && status == entry.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(problemDescription, choices, status);
+        return Objects.hash(problemDescription, creationDateTime, choices, status);
     }
 }

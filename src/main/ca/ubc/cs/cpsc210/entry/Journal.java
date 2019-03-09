@@ -1,7 +1,6 @@
 package ca.ubc.cs.cpsc210.entry;
 
 import ca.ubc.cs.cpsc210.exceptions.NoEntriesAddedException;
-import ca.ubc.cs.cpsc210.exceptions.NoEntryWithIDException;
 import ca.ubc.cs.cpsc210.exceptions.OutOfBoundsException;
 
 import java.util.Collections;
@@ -73,25 +72,24 @@ public class Journal {
             throw new OutOfBoundsException();
         }
 
-        Entry toAdd = new Entry(entry);
-        entries.put(id, entry);
+        entries.put(id, new Entry(entry));
         if (id > greatestIdWithEntry) {
             greatestIdWithEntry = id;
             nextId = id + 1;
             // TODO need to deal with lastEntryDateTime?
+            // maybe compare to current date and update if newer
         }
     }
 
     /**
      * If {@code Entry} with given {@code id} exists, remove from {@code this}. If most recent {@code Entry} was
      * removed, updates date of last entry in {@code this} ({@code lastEntryDateTime}) to whichever {@code Entry} was
-     * added most recently in the {@code Journal}.
+     * added most recently in the {@code Journal}. Does nothing if no {@code Entry} with given {@code id} exists.
      * @param id id to match for
-     * @throws NoEntryWithIDException if no {@code Entry} with given {@code id} exists
      */
-    public void remove(int id) throws NoEntryWithIDException {
+    public void remove(int id) {
         if (!entries.containsKey(id)) {
-            throw new NoEntryWithIDException();
+            return;
         }
 
         if (id == greatestIdWithEntry) {
@@ -116,18 +114,26 @@ public class Journal {
         entries.remove(id);
     }
 
+    // TODO revamp tests without exceptions
     /**
-     * If {@code Entry} with given {@code id} exists, return matching {@code Entry}.
+     * If given {@code id} is mapped to an {@code Entry}, returns matching {@code Entry}. Otherwise, returns null.
      * @param id id to match for
      * @return {@code Entry} with an id equal to given {@code id}
-     * @throws NoEntryWithIDException if no {@code Entry} with given {@code id} exists
      */
-    public Entry get(int id) throws NoEntryWithIDException {
+    public Entry get(int id) {
         // Assume that entries does not contain null values
-        if (entries.containsKey(id)) {
-            return entries.get(id);
-        }
-        throw new NoEntryWithIDException();
+        return entries.get(id);
+    }
+
+    // TODO test
+    /**
+     * Returns true if there exists an {@code Entry} at given {@code id}. In particular, returns true if {@code id}
+     * is mapped to a value.
+     * @param id to check
+     * @return true if {@code id} is mapped, false otherwise
+     */
+    public boolean containsId(int id) {
+        return entries.containsKey(id);
     }
 
     /**

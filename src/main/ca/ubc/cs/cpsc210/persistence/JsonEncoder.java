@@ -35,7 +35,7 @@ public class JsonEncoder {
 
         JSONObject creationDateTime = entryDateTimeToJson(entry.creationDateTime());
         JSONObject completionDateTime = entryDateTimeToJson(entry.completionDateTime());
-        entryJson.put("creationDateTime", (creationDateTime == null) ? JSONObject.NULL : creationDateTime);
+        entryJson.put("creationDateTime", creationDateTime);
         entryJson.put("completionDateTime", (completionDateTime == null) ? JSONObject.NULL : completionDateTime);
 
         return entryJson;

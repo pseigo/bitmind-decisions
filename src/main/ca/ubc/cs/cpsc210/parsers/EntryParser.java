@@ -2,9 +2,7 @@ package ca.ubc.cs.cpsc210.parsers;
 
 import ca.ubc.cs.cpsc210.entry.Choice;
 import ca.ubc.cs.cpsc210.entry.Entry;
-import ca.ubc.cs.cpsc210.entry.EntryDateTime;
 import ca.ubc.cs.cpsc210.entry.Status;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -19,19 +17,11 @@ public class EntryParser {
      */
     public static Entry parse(String input) {
         JSONObject entryJson = new JSONObject(input);
-
-        EntryDateTime completionDateTime;
-        try {
-            JSONObject cdtJson = entryJson.getJSONObject("completionDateTime");
-            completionDateTime = EntryDateTimeParser.parse(cdtJson.toString());
-        } catch (JSONException e) {
-            // Entry is not complete! Therefore, there is no completion date so set null instead.
-            completionDateTime = null;
-        }
+        JSONObject cdtJson = entryJson.optJSONObject("completionDateTime");
 
         Entry entry = new Entry(entryJson.getString("description"),
                 EntryDateTimeParser.parse(entryJson.getJSONObject("creationDateTime").toString()),
-                completionDateTime,
+                (cdtJson == null) ? null : EntryDateTimeParser.parse(cdtJson.toString()),
                 Status.valueOf(entryJson.getString("status")));
 
         for (Object o : entryJson.getJSONArray("choices")) {

@@ -1,7 +1,7 @@
 package ca.ubc.cs.cpsc210.entry;
 
 import ca.ubc.cs.cpsc210.exceptions.NoEntriesAddedException;
-import ca.ubc.cs.cpsc210.exceptions.NoEntryWithIDException;
+import ca.ubc.cs.cpsc210.exceptions.OutOfBoundsException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Peyton Seigo
  */
 public class JournalTest extends ModelTest {
+
     private Journal journal;
 
     @BeforeEach
@@ -29,16 +30,11 @@ public class JournalTest extends ModelTest {
             // Expected behaviour
         }
 
-        try {
-            journal.get(1);
-            fail("didn't catch NoEntryWithIDException when expected");
-        } catch (NoEntryWithIDException e) {
-            // Expected behaviour
-        }
+        assertNull(journal.get(1));
     }
 
     @Test
-    public void testAddEntry() {
+    public void testAdd() {
         EntryDateTime dateTimeNow = EntryDateTime.now();
         Entry entry = new Entry("This is the description");
         journal.add(entry);
@@ -52,39 +48,25 @@ public class JournalTest extends ModelTest {
         }
 
         // Entry in journal should be a deep copy; not the same object
-        try {
-            Entry entryGet = journal.get(1);
-            assertNotSame(entryGet, entry); // compare by reference, not using equals()
-            assertEquals(entryGet.description(), entry.description());
-            assertEquals(entryGet.creationDate(), entry.creationDate());
-            assertEquals(entryGet.status(), entry.status());
-        } catch (NoEntryWithIDException e) {
-            fail("caught " + e.toString() + " when unexpected");
-        }
+        Entry entryGet = journal.get(1);
+        assertNotSame(entryGet, entry); // compare by reference, not using equals()
+        assertEquals(entryGet.description(), entry.description());
+        assertEquals(entryGet.creationDate(), entry.creationDate());
+        assertEquals(entryGet.status(), entry.status());
     }
 
     @Test
-    public void testAddRemoveEntry() {
+    public void testAddRemove() {
         Entry entry = new Entry("This is the one entry that we're adding");
 
         journal.add(entry);
         assertEquals(1, journal.size());
-
-        try {
-            assertEquals(journal.get(1).description(), entry.description());
-        } catch (NoEntryWithIDException e) {
-            fail("caught " + e.toString() + " when unexpected");
-        }
+        assertEquals(journal.get(1).description(), entry.description());
 
         journal.remove(1);
         assertEquals(0, journal.size());
+        assertNull(journal.get(0));
 
-        try {
-            journal.get(0);
-            fail("didn't catch NoEntryWithIdException when expected");
-        } catch (NoEntryWithIDException e) {
-            // Expected behaviour
-        }
         try {
             journal.lastEntryDateShort();
             fail("didn't catch NoEntriesAddedException when expected");
@@ -94,42 +76,154 @@ public class JournalTest extends ModelTest {
     }
 
     @Test
-    public void testAddTwoEntriesByReference() {
+    public void testAddTwoByReference() {
         Entry entry = new Entry("Entry 1");
         addTwoEntriesEnsureDeepCopy(entry, entry);
     }
 
     @Test
-    public void testAddTwoEntryCopies() {
+    public void testAddTwoByCopy() {
         Entry entry1 = new Entry("Entry 1");
         Entry entry2 = new Entry(entry1);
         addTwoEntriesEnsureDeepCopy(entry1, entry2);
     }
 
     @Test
-    public void testRemoveNonExistingEntry() {
+    public void testPutAfterLast() {
+        Entry placeholder = new Entry("This just exists for context");
+        Entry toAdd = new Entry("This is the entry we care about");
+
+        for (int i = 0; i != 3; ++i) {
+            journal.add(placeholder);
+        }
+        // entries: E E E N N ...
+        assertEquals(3, journal.size());
+        assertFalse(journal.containsId(4));
+
+        journal.put(4, toAdd); // entries: E E E E N ...
+        assertTrue(journal.containsId(4));
+        assertEquals(4, journal.size());
+        assertEquals(toAdd, journal.get(4));
+        assertNotSame(toAdd, journal.get(4));
+    }
+
+    @Test
+    public void testPutAtLast() {
+        Entry placeholder = new Entry("This just exists for context");
+        Entry toAdd = new Entry("This is the entry we care about");
+
+        for (int i = 0; i != 3; ++i) {
+            journal.add(placeholder);
+        }
+        // entries: E E E
+        assertEquals(3, journal.size());
+        assertNotEquals(toAdd, journal.get(3));
+
+        journal.put(3, toAdd);
+        assertTrue(journal.containsId(3));
+        assertEquals(3, journal.size());
+        assertEquals(toAdd, journal.get(3));
+        assertNotSame(toAdd, journal.get(3));
+    }
+
+    @Test
+    public void testPutBeforeLastAtUnmappedIndex() {
+        Entry placeholder = new Entry("This just exists for context");
+        Entry toAdd = new Entry("This is the entry we care about");
+
+        for (int i = 0; i != 4; ++i) {
+            journal.add(placeholder);
+        }
+        // entries: E E E E N N ...
+        journal.remove(2);
+        // entries: E N E E N N ...
+        assertEquals(3, journal.size());
+        assertFalse(journal.containsId(2));
+        assertNull(journal.get(2));
+
+        journal.put(2, toAdd);
+        assertEquals(4, journal.size());
+        assertTrue(journal.containsId(2));
+        assertEquals(toAdd, journal.get(2));
+        assertNotSame(toAdd, journal.get(2));
+    }
+
+    @Test
+    public void testPutBeforeLastAtMappedIndex() {
+        Entry placeholder = new Entry("This just exists for context");
+        Entry toAdd = new Entry("This is the entry we care about");
+
+        for (int i = 0; i != 4; ++i) {
+            journal.add(placeholder);
+        }
+        // entries: E E E E N N ...
+        assertEquals(4, journal.size());
+        assertTrue(journal.containsId(2));
+        assertNotEquals(toAdd, journal.get(2));
+
+        journal.put(2, toAdd);
+        assertEquals(4, journal.size());
+        assertEquals(toAdd, journal.get(2));
+        assertNotSame(toAdd, journal.get(2));
+    }
+
+    @Test
+    public void testPutOutOfBounds() {
+        Entry placeholder = new Entry("This just exists for context");
+        Entry toAdd = new Entry("This is the entry we care about");
+
+        for (int i = 0; i != 2; ++i) {
+            journal.add(placeholder);
+        }
+        assertEquals(2, journal.size());
+
+        journal.put(1, toAdd);
+        assertEquals(2, journal.size());
         try {
-            journal.remove(1);
-            fail("didnt catch NoEntryWithIDException when expected");
-        } catch (NoEntryWithIDException e) {
+            journal.put(0, toAdd);
+            fail("did not catch OutOfBoundsException when expected");
+        } catch (OutOfBoundsException e) {
             // Expected behaviour
         }
+        try {
+            journal.put(-1, toAdd);
+            fail("did not catch OutOfBoundsException when expected");
+        } catch (OutOfBoundsException e) {
+            // Expected behaviour
+        }
+        assertEquals(2, journal.size());
+    }
+
+    @Test
+    public void testRemoveNonExistingEntry() {
+        journal.add(new Entry("foo"));
+        journal.add(new Entry("bar"));
+        assertEquals(2, journal.size());
+
+        journal.remove(3); // nothing should happen
+        assertEquals(2, journal.size());
     }
 
     // TODO: use different creation dates
     @Test
-    public void testRemoveEntriesLastEntryDateShift() {
+    public void testRemoveLastEntryDateShift() {
         for (int i = 0; i != 3; ++i) {
             Entry entry = new Entry("Some problem");
             journal.add(entry);
         }
+        assertEquals(3, journal.size());
 
         assertEquals(journal.get(3).creationDate(), journal.lastEntryDateShort());
         journal.remove(3);
+        assertEquals(2, journal.size());
+
         assertEquals(journal.get(2).creationDate(), journal.lastEntryDateShort());
         journal.remove(2);
+        assertEquals(1, journal.size());
+
         assertEquals(journal.get(1).creationDate(), journal.lastEntryDateShort());
         journal.remove(1);
+        assertEquals(0, journal.size());
         try {
             journal.lastEntryDateShort();
             fail("didn't catch NoEntriesAddedException when expected");
@@ -140,19 +234,25 @@ public class JournalTest extends ModelTest {
 
     // TODO: use different creation dates
     @Test
-    public void testRemoveEntriesFromMiddle() {
+    public void testRemoveFromMiddle() {
         for (int i = 0; i != 3; ++i) {
             Entry entry = new Entry("Entry with ID #" + (i + 1));
             journal.add(entry);
         }
+        assertEquals(3, journal.size());
 
         try {
             assertEquals(journal.get(3).creationDate(), journal.lastEntryDateShort());
             journal.remove(1);
+            assertEquals(2, journal.size());
+
             assertEquals(journal.get(3).creationDate(), journal.lastEntryDateShort());
             journal.remove(2);
+            assertEquals(1, journal.size());
+
             assertEquals(journal.get(3).creationDate(), journal.lastEntryDateShort());
             journal.remove(3);
+            assertEquals(0, journal.size());
         } catch (NoEntriesAddedException e) {
             fail("caught " + e.toString() + " when unexpected");
         }

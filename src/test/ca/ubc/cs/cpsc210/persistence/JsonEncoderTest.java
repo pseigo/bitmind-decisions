@@ -1,41 +1,83 @@
 package ca.ubc.cs.cpsc210.persistence;
 
-import ca.ubc.cs.cpsc210.entry.Choice;
-import ca.ubc.cs.cpsc210.entry.Consequence;
-import ca.ubc.cs.cpsc210.entry.Entry;
-import ca.ubc.cs.cpsc210.entry.Journal;
+import ca.ubc.cs.cpsc210.entry.*;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Peyton Seigo
  */
-public class JsonEncoderTest {
-
-    private Journal journal;
+public class JsonEncoderTest extends JsonTest {
 
     @Test
     void journalToJsonTest() {
-        generateJournal();
+        Journal journal = generateJournal();
         JSONObject journalJson = JsonEncoder.journalToJson(journal);
         System.out.println(journalJson.toString(4));
     }
 
     @Test
     void entryToJsonTest() {
+        Entry entry = generateEntry(1, 2, false);
+        JSONObject entryJson = JsonEncoder.entryToJson(entry);
+        assertTrue(entryJson.has("description"));
+        assertTrue(entryJson.has("choices"));
+        assertTrue(entryJson.has("creationDateTime"));
+        assertTrue(entryJson.has("completionDateTime"));
+        assertTrue(entryJson.has("status"));
+        assertEquals(5, entryJson.length());
 
+        assertEquals("Entry 1", entryJson.getString("description"));
+        assertEquals(2, entryJson.getJSONArray("choices").length());
+        assertNotNull(entryJson.optJSONObject("creationDateTime"));
+        assertNull(entryJson.optJSONObject("completionDateTime"));
+        assertEquals("DRAFT", entryJson.getString("status"));
     }
 
     @Test
     void entryDateTimeToJsonTest() {
+        EntryDateTime edt = EntryDateTime.now();
+        JSONObject edtJson = JsonEncoder.entryDateTimeToJson(edt);
+        assertTrue(edtJson.has("year"));
+        assertTrue(edtJson.has("month"));
+        assertTrue(edtJson.has("dayOfMonth"));
+        assertTrue(edtJson.has("hour"));
+        assertTrue(edtJson.has("minute"));
+        assertTrue(edtJson.has("second"));
+        assertEquals(6, edtJson.length());
 
+        LocalDate localDate = edt.toLocalDate();
+        LocalTime localTime = edt.toLocalTime();
+
+        assertEquals(localDate.getYear(), edtJson.getInt("year"));
+        assertEquals(localDate.getMonthValue(), edtJson.getInt("month"));
+        assertEquals(localDate.getDayOfMonth(), edtJson.getInt("dayOfMonth"));
+        assertEquals(localTime.getHour(), edtJson.getInt("hour"));
+        assertEquals(localTime.getMinute(), edtJson.getInt("minute"));
+        assertEquals(localTime.getSecond(), edtJson.getInt("second"));
     }
 
     @Test
     void choiceToJsonTest() {
+        Choice choice = generateChoice(1);
+        JSONObject choiceJson = JsonEncoder.choiceToJson(choice);
+        assertTrue(choiceJson.has("description"));
+        assertTrue(choiceJson.has("pros"));
+        assertTrue(choiceJson.has("cons"));
+        assertTrue(choiceJson.has("regrets"));
+        assertTrue(choiceJson.has("regretValue"));
+        assertEquals(5, choiceJson.length());
 
+        assertEquals("Choice 1", choiceJson.getString("description"));
+        assertEquals(4, choiceJson.getJSONArray("pros").length());
+        assertEquals(4, choiceJson.getJSONArray("cons").length());
+        assertEquals(4, choiceJson.getJSONArray("regrets").length());
+        assertEquals(42, choiceJson.getInt("regretValue"));
     }
 
     @Test
@@ -45,6 +87,8 @@ public class JsonEncoderTest {
         assertTrue(conJson.has("description"));
         assertTrue(conJson.has("isLongTerm"));
         assertTrue(conJson.has("isShortTerm"));
+        assertEquals(3, conJson.length());
+
         assertEquals("Test 1", conJson.get("description"));
         assertFalse(conJson.getBoolean("isLongTerm"));
         assertFalse(conJson.getBoolean("isShortTerm"));
@@ -63,72 +107,6 @@ public class JsonEncoderTest {
         conJson = JsonEncoder.consequenceToJson(consequence);
         assertTrue(conJson.getBoolean("isLongTerm"));
         assertTrue(conJson.getBoolean("isShortTerm"));
-    }
-
-    private Journal generateJournal() {
-        journal = new Journal();
-        generateEntries(journal);
-        return journal;
-    }
-
-    private void generateEntries(Journal journal) {
-        Entry entry1 = new Entry("Entry 1");
-        Entry entry2 = new Entry("Entry 2");
-        entry1.addChoice(generateChoices(1));
-        entry2.addChoice(generateChoices(2));
-        entry2.complete();
-        journal.add(entry1);
-        journal.add(entry2);
-    }
-
-    private Choice generateChoices(int number) {
-        Choice choice = new Choice("Choice " + number);
-
-        choice.addPro(generateConsequence("Pro", 1));
-        choice.addPro(generateConsequence("Pro", 2));
-        choice.addPro(generateConsequence("Pro", 3));
-        choice.addPro(generateConsequence("Pro", 4));
-        choice.addCon(generateConsequence("Con", 1));
-        choice.addCon(generateConsequence("Con", 2));
-        choice.addCon(generateConsequence("Con", 3));
-        choice.addCon(generateConsequence("Con", 4));
-        choice.addRegret(generateConsequence("Regret", 1));
-        choice.addRegret(generateConsequence("Regret", 2));
-        choice.addRegret(generateConsequence("Regret", 3));
-        choice.addRegret(generateConsequence("Regret", 4));
-
-        return choice;
-    }
-
-    private Consequence generateConsequence(String name, int count) {
-        Consequence consequence;
-        String description = name + " " + count;
-
-        switch (count) {
-            case 1:
-                consequence = new Consequence.Builder(description).build();
-                break;
-            case 2:
-                consequence = new Consequence.Builder(description)
-                        .isLongTerm()
-                        .build();
-                break;
-            case 3:
-                consequence = new Consequence.Builder(description)
-                        .isShortTerm()
-                        .build();
-                break;
-            case 4:
-                consequence = new Consequence.Builder(description)
-                        .isLongTerm()
-                        .isShortTerm()
-                        .build();
-                break;
-            default:
-                consequence = new Consequence.Builder("Count #" + count).build();
-        }
-
-        return consequence;
     }
 
 }

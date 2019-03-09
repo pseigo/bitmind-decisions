@@ -69,7 +69,7 @@ public class ConsequenceTest extends ModelTest {
     }
 
     @Test
-        public void testEquals() {
+    public void testEquals() {
         Consequence allParams= new Consequence.Builder("Foobar")
                 .isLongTerm()
                 .isShortTerm()

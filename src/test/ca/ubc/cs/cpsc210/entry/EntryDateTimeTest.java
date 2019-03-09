@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.ZonedDateTime;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Peyton Seigo
@@ -39,5 +39,31 @@ public class EntryDateTimeTest extends ModelTest {
         assertEquals(ldt.toLocalTime().getHour(), entryDateTime.toLocalTime().getHour(), 1);
         assertEquals(ldt.toLocalTime().getMinute(), entryDateTime.toLocalTime().getMinute(), 1);
         assertEquals(ldt.toLocalTime().getSecond(), entryDateTime.toLocalTime().getSecond(), 3);
+    }
+
+    @Test
+    public void testEquals() {
+        entryDateTime = EntryDateTime.now();
+
+        // Same instance
+        assertEquals(entryDateTime, entryDateTime);
+        assertSame(entryDateTime, entryDateTime);
+
+        // Misc. (for that test coverage)
+        assertFalse(entryDateTime.equals(null));
+        assertFalse(entryDateTime.equals(new Object()));
+
+        // New object with identical (equal) fields
+        EntryDateTime sameTime = EntryDateTime.of(
+                LocalDateTime.of(entryDateTime.toLocalDate(), entryDateTime.toLocalTime())
+        );
+
+        assertEquals(entryDateTime, sameTime);
+        assertEquals(entryDateTime.hashCode(), sameTime.hashCode());
+        assertNotSame(entryDateTime, sameTime);
+
+        // New object with different (not equal) parameters
+        EntryDateTime plusFiveMinutes = EntryDateTime.of(LocalDateTime.now().plusMinutes(5));
+        assertNotEquals(entryDateTime, plusFiveMinutes);
     }
 }
