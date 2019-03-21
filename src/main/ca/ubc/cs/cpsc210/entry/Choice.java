@@ -64,7 +64,6 @@ public class Choice {
         return regretValue;
     }
 
-    // TODO test
     /**
      * Returns an unmodifiable list of pros.
      * @return pros
@@ -73,7 +72,6 @@ public class Choice {
         return Collections.unmodifiableList(pros);
     }
 
-    // TODO test
     /**
      * Returns an unmodifiable list of cons.
      * @return pros
@@ -82,7 +80,6 @@ public class Choice {
         return Collections.unmodifiableList(cons);
     }
 
-    // TODO test
     /**
      * Returns an unmodifiable list of regrets.
      * @return regrets

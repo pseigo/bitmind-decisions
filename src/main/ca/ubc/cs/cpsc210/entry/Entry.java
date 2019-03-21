@@ -73,7 +73,6 @@ public class Entry {
         return problemDescription;
     }
 
-    // TODO test
     /**
      * Returns an unmodifiable map of choices.
      * @return choices
@@ -182,7 +181,6 @@ public class Entry {
         return completionDateTime.dateShort();
     }
 
-    // TODO test
     /**
      * If {@code this} entry is complete, returns the completion date and time. Otherwise, returns null.
      * @return creation date and time
