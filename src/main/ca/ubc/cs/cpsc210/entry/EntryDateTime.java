@@ -13,7 +13,7 @@ public class EntryDateTime {
     private static final Locale LOCALE = Locale.CANADA;
     private static final ZoneId LOCAL_TIME_ZONE = ZoneId.of("America/Vancouver");
 
-    private ZonedDateTime dateTime;
+    private final ZonedDateTime dateTime;
 
     private EntryDateTime(ZonedDateTime dateTime) {
         this.dateTime = dateTime;

@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Peyton Seigo
  */
-public class JsonEncoderTest extends JsonTest {
+class JsonEncoderTest extends JsonTest {
 
     @Test
     void journalToJsonTest() {

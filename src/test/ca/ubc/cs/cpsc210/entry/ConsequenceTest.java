@@ -8,11 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Peyton Seigo
  */
-public class ConsequenceTest extends ModelTest {
+class ConsequenceTest extends ModelTest {
     private Consequence consequence;
 
     @Test
-    public void testConstructorValidDescription() {
+    void testConstructorValidDescription() {
         String expectedDescription = "Hello, World! This is my description.";
         consequence = new Consequence.Builder(expectedDescription)
                 .build();
@@ -23,7 +23,7 @@ public class ConsequenceTest extends ModelTest {
     }
 
     @Test
-    public void testConstructorEmptyDescription() {
+    void testConstructorEmptyDescription() {
         try {
             consequence = new Consequence.Builder("")
                     .build();
@@ -35,7 +35,7 @@ public class ConsequenceTest extends ModelTest {
     }
 
     @Test
-    public void testBuildShortTerm() {
+    void testBuildShortTerm() {
         consequence = new Consequence.Builder("Hello, World!")
                 .isShortTerm()
                 .build();
@@ -46,7 +46,7 @@ public class ConsequenceTest extends ModelTest {
     }
 
     @Test
-    public void testBuildLongTerm() {
+    void testBuildLongTerm() {
         consequence = new Consequence.Builder("Hello, World!")
                 .isLongTerm()
                 .build();
@@ -57,7 +57,7 @@ public class ConsequenceTest extends ModelTest {
     }
 
     @Test
-    public void testBuildShortAndLongTerm() {
+    void testBuildShortAndLongTerm() {
         consequence = new Consequence.Builder("Hello, World!")
                 .isShortTerm()
                 .isLongTerm()
@@ -69,7 +69,7 @@ public class ConsequenceTest extends ModelTest {
     }
 
     @Test
-    public void testEquals() {
+    void testEquals() {
         Consequence allParams= new Consequence.Builder("Foobar")
                 .isLongTerm()
                 .isShortTerm()
@@ -80,8 +80,8 @@ public class ConsequenceTest extends ModelTest {
         assertSame(allParams, allParams);
 
         // Misc. (for that test coverage)
-        assertFalse(allParams.equals(null));
-        assertFalse(allParams.equals(new Object()));
+        assertNotEquals(null, allParams);
+        assertNotEquals(allParams, new Object());
 
         // New object with identical (equal) fields
         Consequence sameFields = new Consequence.Builder("Foobar")

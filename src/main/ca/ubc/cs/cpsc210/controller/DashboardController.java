@@ -46,8 +46,6 @@ public class DashboardController {
     }
 
     public void handleNewEntryClick() {
-        System.out.println("making new entry");
-
         Stage entryCreatorStage = new Stage();
         Parent root = new EntryCreator(entryCreatorStage);
 
@@ -62,9 +60,6 @@ public class DashboardController {
             // TODO error + log
             e.printStackTrace();
         }
-
-//        EntryWizard wizard = new EntryWizard();
-//        wizard.createWizard("EntryWizard", 2, "Entry Wizard");
     }
 
     private void setTitle() {

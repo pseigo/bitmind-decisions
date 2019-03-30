@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Journal implements Iterable<Entry> {
 
-    private Map<Integer, Entry> entries;
+    private final Map<Integer, Entry> entries;
     private int nextId;
     private int greatestIdWithEntry;
     private EntryDateTime lastEntryDateTime;

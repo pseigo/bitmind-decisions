@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * These tests rely on persistence.JsonEncoder to generate JSON from existing objects.
  * @author Peyton Seigo
  */
-public class JournalParserTest extends JsonTest {
+class JournalParserTest extends JsonTest {
 
     @Test
     void parseTest() {

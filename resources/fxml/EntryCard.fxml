@@ -6,19 +6,19 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<fx:root prefWidth="600.0" spacing="15.0" style="-fx-background-color: #E1E2E1;" type="VBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.ubc.cs.cpsc210.controller.EntryCardController">
-   <children>
-      <Label fx:id="cardTitle" text="Entry has no description!" wrapText="true">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <VBox fx:id="choicesList" spacing="5.0" />
-   </children>
-   <padding>
-      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-   </padding>
-   <effect>
-      <DropShadow color="#00000035" height="18.03" offsetX="5.0" offsetY="5.0" radius="9.2575" spread="0.03" />
-   </effect>
+<fx:root prefWidth="600.0" spacing="15.0" style="-fx-background-color: #E1E2E1;" type="VBox"
+         xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="ca.ubc.cs.cpsc210.controller.EntryCardController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+    </padding>
+    <effect>
+        <DropShadow color="#00000035" height="18.03" offsetX="5.0" offsetY="5.0" radius="9.2575" spread="0.03"/>
+    </effect>
+    <Label fx:id="cardTitle" text="Entry has no description!" wrapText="true">
+        <font>
+          <Font size="18.0"/>
+        </font>
+    </Label>
+    <VBox fx:id="choicesList" spacing="5.0"/>
 </fx:root>

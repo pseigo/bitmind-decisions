@@ -14,18 +14,16 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Peyton Seigo
  */
-public class EntryTest extends ModelTest {
+class EntryTest extends ModelTest {
     private Entry entry;
-    private EntryDateTime dateTimeNow;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         entry = new Entry("Entry description");
-        dateTimeNow = EntryDateTime.now();
     }
 
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         assertEquals("Entry description", entry.description());
         assertEquals(Status.DRAFT, entry.status());
 
@@ -41,7 +39,7 @@ public class EntryTest extends ModelTest {
     }
 
     @Test
-    public void testCopyConstructor() {
+    void testCopyConstructor() {
         // make an entry with some properties
         for (int i = 0; i != 3; ++i) {
             Choice choice = new Choice("Choice #" + i);
@@ -81,12 +79,12 @@ public class EntryTest extends ModelTest {
 
     // TODO EntryTest.testCreationDateTime
     @Test
-    public void testCreationDateTime() {
+    void testCreationDateTime() {
 
     }
 
     @Test
-    public void testGetNonExistentChoice() {
+    void testGetNonExistentChoice() {
         try {
             entry.getChoice("this does not exist");
             fail("did not catch ElementNotFoundException when expected");
@@ -96,7 +94,7 @@ public class EntryTest extends ModelTest {
     }
     
     @Test
-    public void testAddChoice() {
+    void testAddChoice() {
         Choice choice = new Choice("Some description");
         entry.addChoice(choice);
         try {
@@ -107,14 +105,14 @@ public class EntryTest extends ModelTest {
     }
 
     @Test
-    public void testRemoveNonExistentChoice() {
+    void testRemoveNonExistentChoice() {
         entry.removeChoice("This is not in the list");
         entry.addChoice(new Choice("Adding this for the fun of it"));
         entry.removeChoice("Another");
     }
 
     @Test
-    public void testGetRemovedChoice() {
+    void testGetRemovedChoice() {
         Choice choice = new Choice("Some description");
         entry.addChoice(choice);
         entry.removeChoice("Some description");
@@ -127,7 +125,7 @@ public class EntryTest extends ModelTest {
     }
 
     @Test
-    public void testComplete() {
+    void testComplete() {
         entry.complete();
         assertEquals(Status.COMPLETE, entry.status());
 
@@ -140,7 +138,7 @@ public class EntryTest extends ModelTest {
     }
 
     @Test
-    public void testSetStatus() {
+    void testSetStatus() {
         assertEquals(Status.DRAFT, entry.status());
 
         entry.setStatus(Status.INCOMPLETE);
@@ -151,13 +149,13 @@ public class EntryTest extends ModelTest {
     }
 
     @Test
-    public void testAddTwoChoicesByReference() {
+    void testAddTwoChoicesByReference() {
         Choice choice1 = new Choice("choice 1");
         addTwoChoicesEnsureDeepCopy(choice1, choice1);
     }
 
     @Test
-    public void testAddTwoChoiceCopies() {
+    void testAddTwoChoiceCopies() {
         Choice choice1 = new Choice("choice 1");
         Choice choice2 = new Choice(choice1);
         addTwoChoicesEnsureDeepCopy(choice1, choice2);
@@ -207,14 +205,14 @@ public class EntryTest extends ModelTest {
     }
 
     @Test
-    public void testEquals() {
+    void testEquals() {
         // Same instance
         assertEquals(entry, entry);
         assertSame(entry, entry);
 
         // Misc. (for that test coverage)
-        assertFalse(entry.equals(null));
-        assertFalse(entry.equals(new Object()));
+        assertNotEquals(null, entry);
+        assertNotEquals(entry, new Object());
 
         // New object with identical (equal) fields
         Entry sameFields = new Entry("Entry description");

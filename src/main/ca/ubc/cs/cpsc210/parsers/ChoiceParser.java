@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /**
  * @author Peyton Seigo
  */
-public class ChoiceParser {
+class ChoiceParser {
 
     /**
      * Parses input (a JSONObject as text) to a {@code Choice} and returns the choice.

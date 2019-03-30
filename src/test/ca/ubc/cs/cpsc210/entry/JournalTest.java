@@ -10,17 +10,17 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Peyton Seigo
  */
-public class JournalTest extends ModelTest {
+class JournalTest extends ModelTest {
 
     private Journal journal;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         journal = new Journal();
     }
 
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         assertEquals(0, journal.size());
 
         try {
@@ -34,7 +34,7 @@ public class JournalTest extends ModelTest {
     }
 
     @Test
-    public void testAdd() {
+    void testAdd() {
         EntryDateTime dateTimeNow = EntryDateTime.now();
         Entry entry = new Entry("This is the description");
         journal.add(entry);
@@ -56,7 +56,7 @@ public class JournalTest extends ModelTest {
     }
 
     @Test
-    public void testAddRemove() {
+    void testAddRemove() {
         Entry entry = new Entry("This is the one entry that we're adding");
 
         journal.add(entry);
@@ -76,20 +76,20 @@ public class JournalTest extends ModelTest {
     }
 
     @Test
-    public void testAddTwoByReference() {
+    void testAddTwoByReference() {
         Entry entry = new Entry("Entry 1");
         addTwoEntriesEnsureDeepCopy(entry, entry);
     }
 
     @Test
-    public void testAddTwoByCopy() {
+    void testAddTwoByCopy() {
         Entry entry1 = new Entry("Entry 1");
         Entry entry2 = new Entry(entry1);
         addTwoEntriesEnsureDeepCopy(entry1, entry2);
     }
 
     @Test
-    public void testPutAfterLast() {
+    void testPutAfterLast() {
         Entry placeholder = new Entry("This just exists for context");
         Entry toAdd = new Entry("This is the entry we care about");
 
@@ -108,7 +108,7 @@ public class JournalTest extends ModelTest {
     }
 
     @Test
-    public void testPutAtLast() {
+    void testPutAtLast() {
         Entry placeholder = new Entry("This just exists for context");
         Entry toAdd = new Entry("This is the entry we care about");
 
@@ -127,7 +127,7 @@ public class JournalTest extends ModelTest {
     }
 
     @Test
-    public void testPutBeforeLastAtUnmappedIndex() {
+    void testPutBeforeLastAtUnmappedIndex() {
         Entry placeholder = new Entry("This just exists for context");
         Entry toAdd = new Entry("This is the entry we care about");
 
@@ -149,7 +149,7 @@ public class JournalTest extends ModelTest {
     }
 
     @Test
-    public void testPutBeforeLastAtMappedIndex() {
+    void testPutBeforeLastAtMappedIndex() {
         Entry placeholder = new Entry("This just exists for context");
         Entry toAdd = new Entry("This is the entry we care about");
 
@@ -168,7 +168,7 @@ public class JournalTest extends ModelTest {
     }
 
     @Test
-    public void testPutOutOfBounds() {
+    void testPutOutOfBounds() {
         Entry placeholder = new Entry("This just exists for context");
         Entry toAdd = new Entry("This is the entry we care about");
 
@@ -195,7 +195,7 @@ public class JournalTest extends ModelTest {
     }
 
     @Test
-    public void testRemoveNonExistingEntry() {
+    void testRemoveNonExistingEntry() {
         journal.add(new Entry("foo"));
         journal.add(new Entry("bar"));
         assertEquals(2, journal.size());
@@ -206,7 +206,7 @@ public class JournalTest extends ModelTest {
 
     // TODO: use different creation dates
     @Test
-    public void testRemoveLastEntryDateShift() {
+    void testRemoveLastEntryDateShift() {
         for (int i = 0; i != 3; ++i) {
             Entry entry = new Entry("Some problem");
             journal.add(entry);
@@ -234,7 +234,7 @@ public class JournalTest extends ModelTest {
 
     // TODO: use different creation dates
     @Test
-    public void testRemoveFromMiddle() {
+    void testRemoveFromMiddle() {
         for (int i = 0; i != 3; ++i) {
             Entry entry = new Entry("Entry with ID #" + (i + 1));
             journal.add(entry);
@@ -290,14 +290,14 @@ public class JournalTest extends ModelTest {
     }
 
     @Test
-    public void testEquals() {
+    void testEquals() {
         // Same instance
         assertEquals(journal, journal);
         assertSame(journal, journal);
 
         // Misc. (for that test coverage)
-        assertFalse(journal.equals(null));
-        assertFalse(journal.equals(new Object()));
+        assertNotEquals(null, journal);
+        assertNotEquals(journal, new Object());
 
         // New object with identical (equal) fields
         Entry entry = new Entry("Entry description");

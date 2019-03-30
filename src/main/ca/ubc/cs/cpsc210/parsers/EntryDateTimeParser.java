@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 /**
  * @author Peyton Seigo
  */
-public class EntryDateTimeParser {
+class EntryDateTimeParser {
 
     /**
      * Parses input (a JSONObject as text) to an {@code EntryDateTime} and returns it.

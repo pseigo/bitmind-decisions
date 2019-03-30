@@ -11,10 +11,10 @@ import java.util.*;
  * @author Peyton Seigo
  */
 public class Choice {
-    private String description;
-    private List<Consequence> pros;
-    private List<Consequence> cons;
-    private List<Consequence> regrets;
+    private final String description;
+    private final List<Consequence> pros;
+    private final List<Consequence> cons;
+    private final List<Consequence> regrets;
     private int regretValue;
 
     /**
@@ -34,6 +34,7 @@ public class Choice {
      * copied by reference as they are both immutable.
      * @param that the object to make a deep copy from
      */
+    @SuppressWarnings("CopyConstructorMissesField")
     public Choice(Choice that) {
         this(that.description);
         for (Consequence cons : that.pros) {

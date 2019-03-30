@@ -7,14 +7,14 @@ import ca.ubc.cs.cpsc210.entry.Journal;
 
 public abstract class JsonTest {
 
-    public Journal generateJournal() {
+    protected Journal generateJournal() {
         Journal journal = new Journal();
         journal.add(generateEntry(1, 2, true));
         journal.add(generateEntry(2, 1, false));
         return journal;
     }
 
-    public Entry generateEntry(int number, int choiceCount, boolean complete) {
+    protected Entry generateEntry(int number, int choiceCount, boolean complete) {
         Entry entry = new Entry("Entry " + number);
         for (int i = 0; i != choiceCount; ++i) {
             entry.addChoice(generateChoice(i + 1));
@@ -27,7 +27,7 @@ public abstract class JsonTest {
         return entry;
     }
 
-    public Choice generateChoice(int number) {
+    protected Choice generateChoice(int number) {
         Choice choice = new Choice("Choice " + number);
         choice.setRegretValue(42);
 
@@ -47,7 +47,7 @@ public abstract class JsonTest {
         return choice;
     }
 
-    public Consequence generateConsequence(String name, int count) {
+    protected Consequence generateConsequence(String name, int count) {
         Consequence consequence;
         String description = name + " " + count;
 

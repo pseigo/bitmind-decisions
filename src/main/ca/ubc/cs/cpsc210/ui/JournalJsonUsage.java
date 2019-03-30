@@ -13,7 +13,7 @@ import java.io.IOException;
  * Explores JSON usage scenarios and functionality of the Journal class.
  * @author Peyton Seigo
  */
-public class JournalJsonUsage {
+class JournalJsonUsage {
 
     public static void main(String[] args) {
         JsonFileIO jsonFileIO = new JsonFileIO();

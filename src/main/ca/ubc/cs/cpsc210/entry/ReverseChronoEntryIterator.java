@@ -8,9 +8,9 @@ import java.util.NoSuchElementException;
 /**
  * @author Peyton Seigo
  */
-public class ReverseChronoEntryIterator implements Iterator<Entry> {
+class ReverseChronoEntryIterator implements Iterator<Entry> {
 
-    private Map<Integer, Entry> entries;
+    private final Map<Integer, Entry> entries;
     private int previousId;
     private int nextId;
 

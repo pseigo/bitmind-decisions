@@ -4,6 +4,7 @@ import ca.ubc.cs.cpsc210.entry.Choice;
 import ca.ubc.cs.cpsc210.ui.EntryWizard;
 import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -17,6 +18,7 @@ public class EntryCreatorController {
     @FXML private TextField fldDescriptionChoice1;
     @FXML private TextField fldDescriptionChoice2;
     @FXML private TextField fldDescriptionChoice3;
+    @FXML private GridPane gridChoices;
 
     private List<Choice> choices;
     private Stage entryCreatorStage;

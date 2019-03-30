@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /**
  * @author Peyton Seigo
  */
-public class EntryParser {
+class EntryParser {
 
     /**
      * Parses input (a JSONObject as text) to an {@code Entry} and returns the entry.

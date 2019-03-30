@@ -16,13 +16,9 @@ import java.util.List;
  */
 public class EntryCreator extends VBox {
 
-    private static final String TITLE = "New Entry";
-    private static final int HEIGHT = 600;
-    private static final int WIDTH = 500;
-
-    private Stage entryCreatorStage;
-    private Entry entry;
-    private List<Choice> choices;
+    private final Stage entryCreatorStage;
+    private final Entry entry;
+    private final List<Choice> choices;
 
     public EntryCreator(Stage entryCreatorStage) {
         this.entryCreatorStage = entryCreatorStage;
@@ -34,7 +30,7 @@ public class EntryCreator extends VBox {
         load();
     }
 
-    public void load() {
+    private void load() {
         FxmlResourceLoader resourceLoader = new FxmlResourceLoader();
         FXMLLoader fxmlLoader = resourceLoader.loadFxmlAndSetRoot("EntryCreator.fxml", this);
         EntryCreatorController controller = fxmlLoader.getController();

@@ -11,9 +11,9 @@ import java.util.*;
  */
 public class Entry implements Iterable<Choice> {
     private String problemDescription;
-    private List<Choice> choices;
+    private final List<Choice> choices;
 //    private Choice decision = null; // TODO implement Entry decision functionality
-    private EntryDateTime creationDateTime;
+    private final EntryDateTime creationDateTime;
     private EntryDateTime completionDateTime = null;
     private Status status;
 

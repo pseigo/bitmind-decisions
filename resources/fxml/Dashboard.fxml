@@ -7,47 +7,44 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.glyphfont.Glyph?>
 <fx:root prefHeight="300.0" prefWidth="500.0" spacing="15.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.ubc.cs.cpsc210.controller.DashboardController">
-      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="0.0" spacing="5.0">
-          <children>
-              <Label fx:id="lblTitle" text="Hello!">
-                  <font>
-                      <Font size="24.0" />
-                  </font>
-              </Label>
-         <Region HBox.hgrow="ALWAYS" />
-              <Glyph fontFamily="FontAwesome" fontSize="32.0" icon="user" style="-fx-cursor: hand;" />
-          </children>
-      </HBox>
-   <HBox fx:id="btnNewEntry" alignment="CENTER_LEFT" onMouseClicked="#handleNewEntryClick" spacing="10.0" style="-fx-cursor: hand;">
-      <children>
-         <Glyph fontFamily="FontAwesome" fontSize="32.0" icon="plus_circle" textFill="#26a65b" />
-         <Label text="New Entry" textFill="#26a65b">
+    <HBox alignment="CENTER" prefHeight="0.0" prefWidth="0.0" spacing="5.0">
+        <Label fx:id="lblTitle" text="Hello!">
             <font>
-               <Font size="20.0" />
+                <Font size="24.0"/>
             </font>
-         </Label>
-      </children>
-   </HBox>
+        </Label>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Glyph fontFamily="FontAwesome" fontSize="32.0" icon="user" style="-fx-cursor: hand;"/>
+    </HBox>
+    <HBox fx:id="btnNewEntry" alignment="CENTER_LEFT" onMouseClicked="#handleNewEntryClick" spacing="10.0"
+          style="-fx-cursor: hand;">
+        <Glyph fontFamily="FontAwesome" fontSize="32.0" icon="plus_circle" textFill="#26a65b"/>
+        <Label text="New Entry" textFill="#26a65b">
+           <font>
+               <Font size="20.0"/>
+           </font>
+        </Label>
+    </HBox>
    <Label text="Recent entries">
       <font>
          <Font size="18.0" />
       </font>
    </Label>
-   <ScrollPane fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;">
-      <content>
-            <VBox id="entryCards" fx:id="entryCards" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0">
-            <padding>
-               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </padding>
-         </VBox>
-      </content>
-      <padding>
-         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-      </padding>
-      <VBox.margin>
-         <Insets />
-      </VBox.margin>
-   </ScrollPane>
+    <ScrollPane fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                style="-fx-background-color: transparent;">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+        <VBox.margin>
+            <Insets/>
+        </VBox.margin>
+        <VBox id="entryCards" fx:id="entryCards" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+              spacing="20.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+        </VBox>
+    </ScrollPane>
    <padding>
       <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
    </padding>

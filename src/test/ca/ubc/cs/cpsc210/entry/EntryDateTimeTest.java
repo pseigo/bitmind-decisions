@@ -12,19 +12,19 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Peyton Seigo
  */
-public class EntryDateTimeTest extends ModelTest {
+class EntryDateTimeTest extends ModelTest {
     private EntryDateTime entryDateTime;
     private LocalDate testDate;
 
     @Test
-    public void testNow() {
+    void testNow() {
         entryDateTime = EntryDateTime.now();
         testDate = ZonedDateTime.now().toLocalDate();
         assertEquals(formatShort(testDate), entryDateTime.dateShort());
     }
 
     @Test
-    public void testOf() {
+    void testOf() {
         LocalDateTime testDateTime = LocalDateTime.of(2000, Month.APRIL, 14, 6, 23);
         entryDateTime = EntryDateTime.of(testDateTime);
         testDate = testDateTime.toLocalDate();
@@ -32,7 +32,7 @@ public class EntryDateTimeTest extends ModelTest {
     }
 
     @Test
-    public void testGetLocalDateAndTime() {
+    void testGetLocalDateAndTime() {
         entryDateTime = EntryDateTime.now();
         LocalDateTime ldt = LocalDateTime.now();
         assertEquals(ldt.toLocalDate(), entryDateTime.toLocalDate());
@@ -42,7 +42,7 @@ public class EntryDateTimeTest extends ModelTest {
     }
 
     @Test
-    public void testEquals() {
+    void testEquals() {
         entryDateTime = EntryDateTime.now();
 
         // Same instance
@@ -50,8 +50,8 @@ public class EntryDateTimeTest extends ModelTest {
         assertSame(entryDateTime, entryDateTime);
 
         // Misc. (for that test coverage)
-        assertFalse(entryDateTime.equals(null));
-        assertFalse(entryDateTime.equals(new Object()));
+        assertNotEquals(null, entryDateTime);
+        assertNotEquals(entryDateTime, new Object());
 
         // New object with identical (equal) fields
         EntryDateTime sameTime = EntryDateTime.of(

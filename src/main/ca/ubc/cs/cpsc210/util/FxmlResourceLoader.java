@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.net.URL;
 
 /**
- * Handles loading files from the resources folder.
+ * Handles loading files from the resources folder. Referenced the CPSC 210 standard project starter and a couple online
+ * tutorials to get this right.
  * @author Peyton Seigo
  */
 public class FxmlResourceLoader {

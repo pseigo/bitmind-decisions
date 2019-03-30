@@ -15,10 +15,15 @@ import java.util.List;
  */
 public class EntryWizard {
 
-    private static final String TITLE = "New Entry Wizard";
-    private static final int PAGE_COUNT = 1;
+    private static final String TITLE = "Add Details";
 
-    private List<WizardPane> panes;
+    private final List<WizardPane> wizardPanes;
+    private boolean closedByClickingFinish;
+
+    public EntryWizard() {
+        wizardPanes = new ArrayList<>();
+        closedByClickingFinish = false;
+    }
 
     /**
      * Creates and shows a linear wizard with {@code numPages} pages. For each page, loads FXML files with the base name
@@ -40,32 +45,13 @@ public class EntryWizard {
                                                       int numPages,
                                                       String pageHeader) {
 
-        List<WizardPane> wizardPanes = new ArrayList<>();
-        loadPanes(fxmlBaseFileName, numPages, pageHeader, wizardPanes);
-
-        Wizard wizard = new Wizard();
-        createAndShowWizard(pageHeader, wizardPanes, wizard);
-
-        // TODO somehow let caller know if user cancelled dialog? exception?
-        System.out.println("Returning settings. (" + wizard.getSettings() + ")");
-        return wizard.getSettings();
+        // TODO somehow let caller know if user cancelled dialog? exception? pass closedByClickingFinish?
+        loadPanes(fxmlBaseFileName, numPages, pageHeader);
+        return createAndShowWizard();
     }
 
-    private void createAndShowWizard(String pageHeader, List<WizardPane> wizardPanes, Wizard wizard) {
-        wizard.setFlow(new Wizard.LinearFlow(wizardPanes));
-        wizard.setTitle(pageHeader);
 
-        wizard.showAndWait().ifPresent(result -> {
-            if (result == ButtonType.FINISH) {
-                System.out.println("Wizard completed! Settings: " + wizard.getSettings());
-            } else {
-                System.out.println("Action: " + result.getButtonData().toString() + ". Settings so far: "
-                        + wizard.getSettings());
-            }
-        });
-    }
-
-    private void loadPanes(String fxmlBaseFileName, int numPages, String pageHeader, List<WizardPane> wizardPanes) {
+    private void loadPanes(String fxmlBaseFileName, int numPages, String pageHeader) {
         for (int page = 1; page != numPages + 1; ++page) {
             FxmlResourceLoader loader = new FxmlResourceLoader();
             Parent root = loader.loadFxml(fxmlBaseFileName + page + ".fxml").getRoot();
@@ -75,6 +61,19 @@ public class EntryWizard {
             thisPane.setContent(root);
             wizardPanes.add(thisPane);
         }
+    }
+
+    private ObservableMap<String, Object> createAndShowWizard() {
+        Wizard wizard = new Wizard();
+        wizard.setFlow(new Wizard.LinearFlow(wizardPanes));
+        wizard.setTitle(TITLE);
+
+        wizard.showAndWait().ifPresent(result -> {
+            if (result == ButtonType.FINISH) {
+                closedByClickingFinish = true;
+            }
+        });
+        return wizard.getSettings();
     }
 
 }

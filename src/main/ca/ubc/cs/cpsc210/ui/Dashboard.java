@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 /**
  * @author Peyton Seigo
  */
-public class Dashboard extends VBox {
+class Dashboard extends VBox {
 
     private static final String FXML_FILE_NAME = "Dashboard.fxml";
 

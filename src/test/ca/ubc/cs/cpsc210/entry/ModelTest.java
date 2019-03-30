@@ -6,8 +6,8 @@ import java.time.format.DateTimeFormatter;
 /**
  * @author Peyton Seigo
  */
-public abstract class ModelTest implements DateFormatTest {
-    public String formatShort(LocalDate date) {
+abstract class ModelTest {
+    String formatShort(LocalDate date) {
         return date.format(DateTimeFormatter.ofPattern("E MMM d u"));
     }
 }

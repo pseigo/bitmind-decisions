@@ -10,16 +10,16 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Peyton Seigo
  */
-public class ChoiceTest extends ModelTest {
+class ChoiceTest extends ModelTest {
     private Choice choice;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         choice = new Choice("Choice description");
     }
     
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         assertEquals("Choice description", choice.description());
         assertEquals(0, choice.prosCount());
         assertEquals(0, choice.consCount());
@@ -28,7 +28,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testCopyConstructor() {
+    void testCopyConstructor() {
         // make a choice with some properties
         for (int i = 0; i != 3; ++i) {
             choice.addPro(new Consequence.Builder("Pro #" + i).isLongTerm().build());
@@ -77,7 +77,7 @@ public class ChoiceTest extends ModelTest {
     }
     
     @Test
-    public void testSetRegretValue() {
+    void testSetRegretValue() {
         try {
             choice.setRegretValue(100);
             assertEquals(100, choice.regretValue());
@@ -91,7 +91,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testSetRegretValueInvalid() {
+    void testSetRegretValueInvalid() {
         try {
             choice.setRegretValue(101);
             fail("did not catch OutOfBoundsException when expected");
@@ -111,7 +111,7 @@ public class ChoiceTest extends ModelTest {
 
     // START PROS TESTS
     @Test
-    public void testAddPro() {
+    void testAddPro() {
         Consequence pro = new Consequence.Builder("Some description")
                 .isLongTerm()
                 .build();
@@ -129,7 +129,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testAddProMany() {
+    void testAddProMany() {
         for (int i = 0; i != 100; ++i) {
             Consequence pro = new Consequence.Builder("Consequence #" + i)
                     .isLongTerm()
@@ -149,7 +149,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testAddDuplicatePro() {
+    void testAddDuplicatePro() {
         for (int i = 0; i != 3; ++i) {
             choice.addPro(new Consequence.Builder("Duplicate description").build());
             assertEquals(1, choice.prosCount());
@@ -157,7 +157,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testRemovePro() {
+    void testRemovePro() {
         choice.addPro(new Consequence.Builder("Some description").build());
         assertEquals(1, choice.prosCount());
         choice.removePro("This was never added");
@@ -167,7 +167,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testGetProNotInList() {
+    void testGetProNotInList() {
         try {
             choice.getPro("This is not in the collection");
             fail("did not catch ElementNotFoundException when expected");
@@ -178,7 +178,7 @@ public class ChoiceTest extends ModelTest {
 
     // START CONS TESTS
     @Test
-    public void testRegretCon() {
+    void testRegretCon() {
         Consequence con = new Consequence.Builder("Some description")
                 .isLongTerm()
                 .build();
@@ -196,7 +196,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testAddConMany() {
+    void testAddConMany() {
         for (int i = 0; i != 100; ++i) {
             Consequence con = new Consequence.Builder("Consequence #" + i)
                     .isLongTerm()
@@ -216,7 +216,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testAddDuplicateCon() {
+    void testAddDuplicateCon() {
         for (int i = 0; i != 3; ++i) {
             choice.addCon(new Consequence.Builder("Duplicate description").build());
             assertEquals(1, choice.consCount());
@@ -224,7 +224,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testRemoveCon() {
+    void testRemoveCon() {
         choice.addCon(new Consequence.Builder("Some description").build());
         assertEquals(1, choice.consCount());
         choice.removeCon("This was never added");
@@ -234,7 +234,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testGetConNotInList() {
+    void testGetConNotInList() {
         try {
             choice.getCon("This is not in the collection");
             fail("did not catch ElementNotFoundException when expected");
@@ -245,7 +245,7 @@ public class ChoiceTest extends ModelTest {
 
     // START REGRETS TESTS
     @Test
-    public void testAddRegret() {
+    void testAddRegret() {
         Consequence regret = new Consequence.Builder("Some description")
                 .isLongTerm()
                 .build();
@@ -263,7 +263,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testAddRegretMany() {
+    void testAddRegretMany() {
         for (int i = 0; i != 100; ++i) {
             Consequence regret = new Consequence.Builder("Consequence #" + i)
                     .isLongTerm()
@@ -283,7 +283,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testAddDuplicateRegret() {
+    void testAddDuplicateRegret() {
         for (int i = 0; i != 3; ++i) {
             choice.addRegret(new Consequence.Builder("Duplicate description").build());
             assertEquals(1, choice.regretsCount());
@@ -291,7 +291,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testRemoveRegret() {
+    void testRemoveRegret() {
         choice.addRegret(new Consequence.Builder("Some description").build());
         assertEquals(1, choice.regretsCount());
         choice.removeRegret("This was never added");
@@ -301,7 +301,7 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testGetRegretNotInList() {
+    void testGetRegretNotInList() {
         try {
             choice.getPro("This is not in the collection");
             fail("did not catch ElementNotFoundException when expected");
@@ -311,14 +311,14 @@ public class ChoiceTest extends ModelTest {
     }
 
     @Test
-    public void testEquals() {
+    void testEquals() {
         // Same instance
         assertEquals(choice, choice);
         assertSame(choice, choice);
 
         // Misc. (for that test coverage)
-        assertFalse(choice.equals(null));
-        assertFalse(choice.equals(new Object()));
+        assertNotEquals(null, choice);
+        assertNotEquals(choice, new Object());
 
         // New object with identical (equal) fields
         Choice sameFields = new Choice("Choice description");

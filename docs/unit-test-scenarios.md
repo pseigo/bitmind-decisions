@@ -54,8 +54,8 @@ A list of scenarios to test for each respective class.
 - Multiple operations
   - **Add 2, remove last, ensure lastEntryDateShort changes**
   - **Add 2, remove first, ensure lastEntryDateShort stays the same**
-  - Add 2 **references** to **same** Entry object, observe that both are added, remove one, observe list changes in size, observe that changes to one are not propogated to copies
-  - Add 2 **clones** of an Entry object, observe that both are added, remove one, observe list changes in size, observe that changes to one are not propogated to copies
+  - Add 2 **references** to **same** Entry object, observe that both are added, remove one, observe list changes in size, observe that changes to one are not propagated to copies
+  - Add 2 **clones** of an Entry object, observe that both are added, remove one, observe list changes in size, observe that changes to one are not propagated to copies
 
 ## model.entryDateTime
 
@@ -64,4 +64,4 @@ A list of scenarios to test for each respective class.
 
 ## model.Status
 
-Dtested unless additional behaviour is implemented.
+Not tested unless additional behaviour is implemented.

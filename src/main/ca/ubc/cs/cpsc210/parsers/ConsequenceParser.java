@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /**
  * @author Peyton Seigo
  */
-public class ConsequenceParser {
+class ConsequenceParser {
 
     /**
      * Parses input (a JSONObject as text) to a {@code Consequence} and returns the consequence.

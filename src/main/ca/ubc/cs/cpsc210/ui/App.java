@@ -10,7 +10,6 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Optional;
 
 /**
  * @author Peyton Seigo
@@ -33,7 +32,7 @@ public class App extends Application {
         load();
     }
 
-    public void setScene(Parent root) {
+    private void setScene(Parent root) {
         try {
             Scene scene = new Scene(root, WIDTH, HEIGHT);
             primaryStage.setTitle(TITLE);
@@ -53,13 +52,14 @@ public class App extends Application {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to exit the program?");
         alert.setTitle("Close confirmation");
 
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get().equals(ButtonType.OK)) {
-            primaryStage.close();
-        }
+        alert.showAndWait().ifPresent(result -> {
+            if (result.equals(ButtonType.OK)) {
+                primaryStage.close();
+            }
+        });
     }
 
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
 //        setUserAgentStylesheet(STYLESHEET_);
         setPrimaryStage(primaryStage);
         Parent root = new Dashboard(journal);
