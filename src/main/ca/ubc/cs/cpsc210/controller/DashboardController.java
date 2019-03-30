@@ -1,7 +1,7 @@
 package ca.ubc.cs.cpsc210.controller;
 
-import ca.ubc.cs.cpsc210.entry.Entry;
-import ca.ubc.cs.cpsc210.entry.Journal;
+import ca.ubc.cs.cpsc210.model.Entry;
+import ca.ubc.cs.cpsc210.model.Journal;
 import ca.ubc.cs.cpsc210.ui.EntryCard;
 import ca.ubc.cs.cpsc210.ui.EntryCreator;
 import javafx.fxml.FXML;
@@ -45,7 +45,8 @@ public class DashboardController {
         }
     }
 
-    public void handleNewEntryClick() {
+    @FXML
+    private void handleNewEntryClick() {
         Stage entryCreatorStage = new Stage();
         Parent root = new EntryCreator(entryCreatorStage);
 
@@ -64,7 +65,7 @@ public class DashboardController {
 
     private void setTitle() {
         String titleText;
-        int hour = LocalTime.now().getHour(); // In [0, 23]
+        int hour = LocalTime.now().getHour();
 
         if (hour > 4 && hour <= 11) {
             titleText = "Good morning!";

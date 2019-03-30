@@ -1,4 +1,4 @@
-package ca.ubc.cs.cpsc210.entry;
+package ca.ubc.cs.cpsc210.model;
 
 import ca.ubc.cs.cpsc210.exceptions.NoEntriesAddedException;
 import ca.ubc.cs.cpsc210.exceptions.OutOfBoundsException;
@@ -44,10 +44,8 @@ public class Journal implements Iterable<Entry> {
      * @return entry ID in this journal where given entry was added
      */
     public int add(Entry entry) {
-        // Calling deep copy constructor
         Entry toAdd = new Entry(entry);
         int toAddId = (nextId <= greatestIdWithEntry) ? greatestIdWithEntry + 1 : nextId;
-//        assert(!entries.containsKey(toAddId));
 
         entries.put(toAddId, toAdd);
         greatestIdWithEntry = toAddId;
@@ -74,8 +72,7 @@ public class Journal implements Iterable<Entry> {
         if (id > greatestIdWithEntry) {
             greatestIdWithEntry = id;
             nextId = id + 1;
-            // TODO need to deal with lastEntryDateTime?
-            // maybe compare to current date and update if newer
+            // TODO need to deal with lastEntryDateTime? maybe compare to current date and update if newer
         }
     }
 

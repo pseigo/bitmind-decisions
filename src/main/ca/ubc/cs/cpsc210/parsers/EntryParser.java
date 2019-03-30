@@ -1,8 +1,8 @@
 package ca.ubc.cs.cpsc210.parsers;
 
-import ca.ubc.cs.cpsc210.entry.Choice;
-import ca.ubc.cs.cpsc210.entry.Entry;
-import ca.ubc.cs.cpsc210.entry.Status;
+import ca.ubc.cs.cpsc210.model.Choice;
+import ca.ubc.cs.cpsc210.model.Entry;
+import ca.ubc.cs.cpsc210.model.Status;
 import org.json.JSONObject;
 
 /**

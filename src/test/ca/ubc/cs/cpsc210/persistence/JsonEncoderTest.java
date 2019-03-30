@@ -1,6 +1,6 @@
 package ca.ubc.cs.cpsc210.persistence;
 
-import ca.ubc.cs.cpsc210.entry.*;
+import ca.ubc.cs.cpsc210.model.*;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 

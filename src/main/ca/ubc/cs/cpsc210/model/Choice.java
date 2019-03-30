@@ -1,4 +1,4 @@
-package ca.ubc.cs.cpsc210.entry;
+package ca.ubc.cs.cpsc210.model;
 
 import ca.ubc.cs.cpsc210.exceptions.ElementNotFoundException;
 import ca.ubc.cs.cpsc210.exceptions.OutOfBoundsException;

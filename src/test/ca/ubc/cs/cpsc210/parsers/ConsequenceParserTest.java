@@ -1,6 +1,6 @@
 package ca.ubc.cs.cpsc210.parsers;
 
-import ca.ubc.cs.cpsc210.entry.Consequence;
+import ca.ubc.cs.cpsc210.model.Consequence;
 import ca.ubc.cs.cpsc210.persistence.JsonEncoder;
 import ca.ubc.cs.cpsc210.persistence.JsonTest;
 import org.json.JSONObject;

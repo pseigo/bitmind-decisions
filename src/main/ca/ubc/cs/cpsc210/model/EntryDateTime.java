@@ -1,4 +1,4 @@
-package ca.ubc.cs.cpsc210.entry;
+package ca.ubc.cs.cpsc210.model;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -21,6 +21,7 @@ public class EntryDateTime {
 
     /**
      * Returns an instance of {@code EntryDateTime} from a given date and time, truncated to seconds.
+     * @param dateTime date and time that the {@code EntryDateTime} is set to
      * @return the entry date-time
      */
     public static EntryDateTime of(LocalDateTime dateTime) {

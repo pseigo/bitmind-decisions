@@ -1,4 +1,4 @@
-package ca.ubc.cs.cpsc210.entry;
+package ca.ubc.cs.cpsc210.model;
 
 import ca.ubc.cs.cpsc210.exceptions.ElementNotFoundException;
 import ca.ubc.cs.cpsc210.exceptions.EntryIncompleteException;
@@ -40,7 +40,6 @@ class EntryTest extends ModelTest {
 
     @Test
     void testCopyConstructor() {
-        // make an entry with some properties
         for (int i = 0; i != 3; ++i) {
             Choice choice = new Choice("Choice #" + i);
             choice.addPro(new Consequence.Builder("A pro").build());
@@ -73,7 +72,6 @@ class EntryTest extends ModelTest {
             }
         }
 
-        // assert that they are different objects
         assertNotSame(entry, deepCopy);
     }
 

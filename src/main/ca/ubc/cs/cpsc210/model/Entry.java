@@ -1,4 +1,4 @@
-package ca.ubc.cs.cpsc210.entry;
+package ca.ubc.cs.cpsc210.model;
 
 import ca.ubc.cs.cpsc210.exceptions.ElementNotFoundException;
 import ca.ubc.cs.cpsc210.exceptions.EntryIncompleteException;
@@ -10,9 +10,9 @@ import java.util.*;
  * @author Peyton Seigo
  */
 public class Entry implements Iterable<Choice> {
+
     private String problemDescription;
     private final List<Choice> choices;
-//    private Choice decision = null; // TODO implement Entry decision functionality
     private final EntryDateTime creationDateTime;
     private EntryDateTime completionDateTime = null;
     private Status status;
@@ -94,7 +94,6 @@ public class Entry implements Iterable<Choice> {
      * @param choice choice added to {@code this}
      */
     public void addChoice(Choice choice) {
-        // Calling deep copy constructor
         Choice toAdd = new Choice(choice);
         choices.add(toAdd);
     }

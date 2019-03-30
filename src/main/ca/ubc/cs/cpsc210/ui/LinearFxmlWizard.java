@@ -1,5 +1,6 @@
 package ca.ubc.cs.cpsc210.ui;
 
+import ca.ubc.cs.cpsc210.exceptions.WizardNotLoadedException;
 import ca.ubc.cs.cpsc210.util.FxmlResourceLoader;
 import javafx.collections.ObservableMap;
 import javafx.scene.Parent;
@@ -10,23 +11,56 @@ import org.controlsfx.dialog.WizardPane;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO somehow let caller know if user cancelled dialog? exception? pass closedByClickingFinish?
 /**
  * @author Peyton Seigo
  */
-public class EntryWizard {
+public class LinearFxmlWizard {
 
     private static final String TITLE = "Add Details";
 
+    private final Wizard wizard;
     private final List<WizardPane> wizardPanes;
     private boolean closedByClickingFinish;
+    private boolean wizardLoaded;
 
-    public EntryWizard() {
+    /**
+     * Constructor for {@code LinearFxmlWizard}.
+     */
+    public LinearFxmlWizard() {
+        wizard = new Wizard();
         wizardPanes = new ArrayList<>();
+        wizardLoaded = false;
         closedByClickingFinish = false;
     }
 
     /**
-     * Creates and shows a linear wizard with {@code numPages} pages. For each page, loads FXML files with the base name
+     * Returns true if wizard was closed by clicking finish, otherwise false.
+     * @return true if closed by clicking finish
+     */
+    public boolean closedByClickingFinish() {
+        return closedByClickingFinish;
+    }
+
+    /**
+     * Shows this wizard to the user. Returns any data entered, regardless of whether the user finishes the wizard or
+     * closes it early.
+     * @return {@code wizard.getSettings()} when the wizard is closed
+     * @throws WizardNotLoadedException if wizard has not been loaded yet
+     */
+    public ObservableMap<String, Object> show() throws WizardNotLoadedException {
+        if (!wizardLoaded) {
+            throw new WizardNotLoadedException();
+        }
+
+        wizard.showAndWait().ifPresent(result -> {
+            closedByClickingFinish = result == ButtonType.FINISH;
+        });
+        return wizard.getSettings();
+    }
+
+    /**
+     * Creates and loads a linear wizard with {@code numPages} pages. For each page, loads FXML files with the base name
      * {@code fxmlBaseFileName} and ending with a number, starting at 1. Loads pages from 1 to {@code numPages}.
      *
      * For example, to create a 3-page wizard where the FXML files are named as:
@@ -35,21 +69,18 @@ public class EntryWizard {
      *   - EntryWizard2.fxml
      *   - EntryWizard3.fxml
      *
-     * One might call {@code createWizard("EntryWizard", 3, "Entry Wizard")}.
+     * One might call {@code load("LinearFxmlWizard", 3, "Entry Wizard")}. After created, display to the user
+     * by calling {@code show()}.
      * @param fxmlBaseFileName FXML file name without the file extension nor the page index
      * @param numPages number of pages in wizard; there must be at least {@code numPages} appropriate FXML files
      * @param pageHeader header text displayed on each page
-     * @return
      */
-    public ObservableMap<String, Object> createWizard(String fxmlBaseFileName,
-                                                      int numPages,
-                                                      String pageHeader) {
-
-        // TODO somehow let caller know if user cancelled dialog? exception? pass closedByClickingFinish?
+    public void load(String fxmlBaseFileName, int numPages, String pageHeader) {
         loadPanes(fxmlBaseFileName, numPages, pageHeader);
-        return createAndShowWizard();
+        wizard.setFlow(new Wizard.LinearFlow(wizardPanes));
+        wizard.setTitle(TITLE);
+        wizardLoaded = true;
     }
-
 
     private void loadPanes(String fxmlBaseFileName, int numPages, String pageHeader) {
         for (int page = 1; page != numPages + 1; ++page) {
@@ -61,19 +92,6 @@ public class EntryWizard {
             thisPane.setContent(root);
             wizardPanes.add(thisPane);
         }
-    }
-
-    private ObservableMap<String, Object> createAndShowWizard() {
-        Wizard wizard = new Wizard();
-        wizard.setFlow(new Wizard.LinearFlow(wizardPanes));
-        wizard.setTitle(TITLE);
-
-        wizard.showAndWait().ifPresent(result -> {
-            if (result == ButtonType.FINISH) {
-                closedByClickingFinish = true;
-            }
-        });
-        return wizard.getSettings();
     }
 
 }

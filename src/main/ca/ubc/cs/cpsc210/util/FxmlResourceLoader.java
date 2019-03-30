@@ -37,6 +37,7 @@ public class FxmlResourceLoader {
      * Loads fxml file with given name (including the .fxml extension) and sets the fx:root element to the given
      * {@code root} object. The fx:root structure can be enabled in Scene Builder in the Controller panel.
      * @param fxmlFileName file name of the fxml resource to load
+     * @param root set as root of object hierarchy
      * @return FXMLLoader object loaded according to the given fxml file name
      * @throws RuntimeException if an IOException occurs in loading the file
      */
@@ -52,4 +53,5 @@ public class FxmlResourceLoader {
         }
         return fxmlLoader;
     }
+
 }

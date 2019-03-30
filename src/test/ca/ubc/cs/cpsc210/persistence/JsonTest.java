@@ -1,10 +1,13 @@
 package ca.ubc.cs.cpsc210.persistence;
 
-import ca.ubc.cs.cpsc210.entry.Choice;
-import ca.ubc.cs.cpsc210.entry.Consequence;
-import ca.ubc.cs.cpsc210.entry.Entry;
-import ca.ubc.cs.cpsc210.entry.Journal;
+import ca.ubc.cs.cpsc210.model.Choice;
+import ca.ubc.cs.cpsc210.model.Consequence;
+import ca.ubc.cs.cpsc210.model.Entry;
+import ca.ubc.cs.cpsc210.model.Journal;
 
+/**
+ * @author Peyton Seigo
+ */
 public abstract class JsonTest {
 
     protected Journal generateJournal() {

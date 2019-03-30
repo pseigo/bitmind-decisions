@@ -1,6 +1,6 @@
 package ca.ubc.cs.cpsc210.util;
 
-import ca.ubc.cs.cpsc210.entry.Journal;
+import ca.ubc.cs.cpsc210.model.Journal;
 import ca.ubc.cs.cpsc210.parsers.JournalParser;
 import ca.ubc.cs.cpsc210.persistence.JsonEncoder;
 import org.json.JSONException;
@@ -14,6 +14,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
+ * Handles writing and reading user app data to and from local storage.
  * @author Peyton Seigo
  */
 public class JsonFileIO {
@@ -22,7 +23,6 @@ public class JsonFileIO {
     private static final Path backupPath = Paths.get("./resources/json/backup");
 
     // TODO: read/store entries individually, check for path existence (e.g. resources/json/myjournal), combine entries
-    // throws an exception if file does not exist
     /**
      * Attempts to read a {@code Journal} from {@code journal.json} file on disk.
      * @return {@code Journal} parsed from {@code journal.json}
@@ -56,6 +56,7 @@ public class JsonFileIO {
         }
     }
 
+    // TODO backup()
     /**
      * If {@code journal.json} exists, creates a timestamped copy at the configured backup path. Otherwise, does
      * nothing.
@@ -64,7 +65,7 @@ public class JsonFileIO {
 
     }
 
-    // TODO deleteBackupsOlderThan(<a date>)
+    // TODO deleteBackupsOlderThan(<a date>); make sure to document
     public static void deleteBackupsOlderThan() {
 
     }

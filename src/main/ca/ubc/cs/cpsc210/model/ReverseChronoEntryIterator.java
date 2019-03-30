@@ -1,4 +1,4 @@
-package ca.ubc.cs.cpsc210.entry;
+package ca.ubc.cs.cpsc210.model;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -41,7 +41,6 @@ class ReverseChronoEntryIterator implements Iterator<Entry> {
      */
     @Override
     public Entry next() {
-        // hasNext lazily updates the nextId field before it is retrieved from entries
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
@@ -53,7 +52,6 @@ class ReverseChronoEntryIterator implements Iterator<Entry> {
      * Sets {@code nextId} to the next valid ID in {@code entries}. If there is next ID, sets {@code nextId} to 0.
      */
     private void updateNextId() {
-        // Iterator has not visited the next ID yet. We do not want to skip over any elements.
         if (nextId != previousId) {
             return;
         }
@@ -66,7 +64,6 @@ class ReverseChronoEntryIterator implements Iterator<Entry> {
             }
         }
 
-        // We have iterated to 0, so set nextId to 0 (as stated in documentation).
         nextId = 0;
     }
 }

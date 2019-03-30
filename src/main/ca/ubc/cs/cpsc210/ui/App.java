@@ -1,6 +1,6 @@
 package ca.ubc.cs.cpsc210.ui;
 
-import ca.ubc.cs.cpsc210.entry.Journal;
+import ca.ubc.cs.cpsc210.model.Journal;
 import ca.ubc.cs.cpsc210.util.JsonFileIO;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -23,6 +23,10 @@ public class App extends Application {
 
     private Journal journal;
 
+    /**
+     * Entry point for the JavaFX desktop application,
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
@@ -60,7 +64,6 @@ public class App extends Application {
     }
 
     public void start(Stage primaryStage) {
-//        setUserAgentStylesheet(STYLESHEET_);
         setPrimaryStage(primaryStage);
         Parent root = new Dashboard(journal);
         setScene(root);

@@ -1,4 +1,4 @@
-package ca.ubc.cs.cpsc210.entry;
+package ca.ubc.cs.cpsc210.model;
 
 import ca.ubc.cs.cpsc210.exceptions.EmptyDescriptionException;
 
@@ -73,7 +73,7 @@ public class Consequence {
      * Constructor is private as per the "Builder" pattern.
      */
     private Consequence() {
-        // Uses Builder pattern.
+
     }
 
     /**

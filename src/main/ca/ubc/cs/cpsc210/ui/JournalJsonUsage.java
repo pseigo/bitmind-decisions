@@ -1,9 +1,9 @@
 package ca.ubc.cs.cpsc210.ui;
 
-import ca.ubc.cs.cpsc210.entry.Choice;
-import ca.ubc.cs.cpsc210.entry.Consequence;
-import ca.ubc.cs.cpsc210.entry.Entry;
-import ca.ubc.cs.cpsc210.entry.Journal;
+import ca.ubc.cs.cpsc210.model.Choice;
+import ca.ubc.cs.cpsc210.model.Consequence;
+import ca.ubc.cs.cpsc210.model.Entry;
+import ca.ubc.cs.cpsc210.model.Journal;
 import ca.ubc.cs.cpsc210.persistence.JsonEncoder;
 import ca.ubc.cs.cpsc210.util.JsonFileIO;
 
@@ -25,7 +25,6 @@ class JournalJsonUsage {
             e.printStackTrace();
         }
         System.out.println(JsonEncoder.journalToJson(journal).toString());
-
 
 //        Journal journal = testJournal();
 //        JSONObject entriesMap = JsonEncoder.journalToJson(journal);

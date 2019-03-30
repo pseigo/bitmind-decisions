@@ -1,6 +1,6 @@
 package ca.ubc.cs.cpsc210.parsers;
 
-import ca.ubc.cs.cpsc210.entry.EntryDateTime;
+import ca.ubc.cs.cpsc210.model.EntryDateTime;
 import org.json.JSONObject;
 
 import java.time.DateTimeException;

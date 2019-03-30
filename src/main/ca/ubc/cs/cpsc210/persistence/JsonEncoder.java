@@ -1,6 +1,6 @@
 package ca.ubc.cs.cpsc210.persistence;
 
-import ca.ubc.cs.cpsc210.entry.*;
+import ca.ubc.cs.cpsc210.model.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -13,6 +13,11 @@ import java.util.Map;
  */
 public class JsonEncoder {
 
+    /**
+     * Encodes given {@code Journal}—including all of its children—to a {@code JSONObject}.
+     * @param journal object to encode
+     * @return JSONObject created from given {@code Journal}
+     */
     public static JSONObject journalToJson(Journal journal) {
         JSONObject entriesMap = new JSONObject();
         for (Map.Entry<Integer, Entry> entry : journal.entries().entrySet()) {
@@ -21,6 +26,11 @@ public class JsonEncoder {
         return entriesMap;
     }
 
+    /**
+     * Encodes given {@code Entry}—including all of its children—to a {@code JSONObject}.
+     * @param entry object to encode
+     * @return JSONObject created from given {@code Entry}
+     */
     public static JSONObject entryToJson(Entry entry) {
         JSONObject entryJson = new JSONObject();
 
@@ -41,6 +51,11 @@ public class JsonEncoder {
         return entryJson;
     }
 
+    /**
+     * Encodes given {@code EntryDateTime} to a {@code JSONObject}.
+     * @param entryDateTime object to encode
+     * @return JSONObject created from given {@code EntryDateTime}
+     */
     public static JSONObject entryDateTimeToJson(EntryDateTime entryDateTime) {
         if (entryDateTime == null) {
             return null;
@@ -61,6 +76,11 @@ public class JsonEncoder {
         return entryDateTimeJson;
     }
 
+    /**
+     * Encodes given {@code Choice}—including all of its children—to a {@code JSONObject}.
+     * @param choice object to encode
+     * @return JSONObject created from given {@code Choice}
+     */
     public static JSONObject choiceToJson(Choice choice) {
         JSONObject choiceJson = new JSONObject();
         choiceJson.put("description", choice.description());
@@ -88,6 +108,11 @@ public class JsonEncoder {
         choiceJson.put("regrets", regretsList);
     }
 
+    /**
+     * Encodes given {@code Consequence} to a {@code JSONObject}.
+     * @param consequence object to encode
+     * @return JSONObject created from given {@code Consequence}
+     */
     public static JSONObject consequenceToJson(Consequence consequence) {
         JSONObject consequenceJson = new JSONObject();
 

@@ -1,8 +1,8 @@
 package ca.ubc.cs.cpsc210.ui;
 
 import ca.ubc.cs.cpsc210.controller.EntryCreatorController;
-import ca.ubc.cs.cpsc210.entry.Choice;
-import ca.ubc.cs.cpsc210.entry.Entry;
+import ca.ubc.cs.cpsc210.model.Choice;
+import ca.ubc.cs.cpsc210.model.Entry;
 import ca.ubc.cs.cpsc210.util.FxmlResourceLoader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
@@ -20,6 +20,10 @@ public class EntryCreator extends VBox {
     private final Entry entry;
     private final List<Choice> choices;
 
+    /**
+     * Loads FXML resource for the entry creator and initializes values.
+     * @param entryCreatorStage reference back to the containing stage so this pane can close itself
+     */
     public EntryCreator(Stage entryCreatorStage) {
         this.entryCreatorStage = entryCreatorStage;
         entry = new Entry("(No description)");

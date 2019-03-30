@@ -1,7 +1,7 @@
 package ca.ubc.cs.cpsc210.controller;
 
-import ca.ubc.cs.cpsc210.entry.Choice;
-import ca.ubc.cs.cpsc210.entry.Entry;
+import ca.ubc.cs.cpsc210.model.Choice;
+import ca.ubc.cs.cpsc210.model.Entry;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -22,6 +22,10 @@ public class EntryCardController {
     @FXML VBox choicesList;
     @FXML private Label cardTitle;
 
+    /**
+     * Populates card with given {@code entry} data.
+     * @param entry data to populate the card
+     */
     public void setData(Entry entry) {
         cardTitle.setText(entry.description());
 

@@ -1,4 +1,4 @@
-package ca.ubc.cs.cpsc210.entry;
+package ca.ubc.cs.cpsc210.model;
 
 import ca.ubc.cs.cpsc210.exceptions.NoEntriesAddedException;
 import ca.ubc.cs.cpsc210.exceptions.OutOfBoundsException;
@@ -49,7 +49,7 @@ class JournalTest extends ModelTest {
 
         // Entry in journal should be a deep copy; not the same object
         Entry entryGet = journal.get(1);
-        assertNotSame(entryGet, entry); // compare by reference, not using equals()
+        assertNotSame(entryGet, entry);
         assertEquals(entryGet.description(), entry.description());
         assertEquals(entryGet.creationDate(), entry.creationDate());
         assertEquals(entryGet.status(), entry.status());
@@ -96,11 +96,11 @@ class JournalTest extends ModelTest {
         for (int i = 0; i != 3; ++i) {
             journal.add(placeholder);
         }
-        // entries: E E E N N ...
+
         assertEquals(3, journal.size());
         assertFalse(journal.containsId(4));
 
-        journal.put(4, toAdd); // entries: E E E E N ...
+        journal.put(4, toAdd);
         assertTrue(journal.containsId(4));
         assertEquals(4, journal.size());
         assertEquals(toAdd, journal.get(4));
@@ -115,7 +115,7 @@ class JournalTest extends ModelTest {
         for (int i = 0; i != 3; ++i) {
             journal.add(placeholder);
         }
-        // entries: E E E
+
         assertEquals(3, journal.size());
         assertNotEquals(toAdd, journal.get(3));
 
@@ -134,9 +134,8 @@ class JournalTest extends ModelTest {
         for (int i = 0; i != 4; ++i) {
             journal.add(placeholder);
         }
-        // entries: E E E E N N ...
+
         journal.remove(2);
-        // entries: E N E E N N ...
         assertEquals(3, journal.size());
         assertFalse(journal.containsId(2));
         assertNull(journal.get(2));
@@ -156,7 +155,7 @@ class JournalTest extends ModelTest {
         for (int i = 0; i != 4; ++i) {
             journal.add(placeholder);
         }
-        // entries: E E E E N N ...
+
         assertEquals(4, journal.size());
         assertTrue(journal.containsId(2));
         assertNotEquals(toAdd, journal.get(2));
@@ -200,7 +199,7 @@ class JournalTest extends ModelTest {
         journal.add(new Entry("bar"));
         assertEquals(2, journal.size());
 
-        journal.remove(3); // nothing should happen
+        journal.remove(3);
         assertEquals(2, journal.size());
     }
 

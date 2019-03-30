@@ -1,6 +1,6 @@
 package ca.ubc.cs.cpsc210.parsers;
 
-import ca.ubc.cs.cpsc210.entry.EntryDateTime;
+import ca.ubc.cs.cpsc210.model.EntryDateTime;
 import ca.ubc.cs.cpsc210.persistence.JsonEncoder;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;

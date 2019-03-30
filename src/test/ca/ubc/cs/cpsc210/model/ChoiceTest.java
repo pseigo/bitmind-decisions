@@ -1,4 +1,4 @@
-package ca.ubc.cs.cpsc210.entry;
+package ca.ubc.cs.cpsc210.model;
 
 import ca.ubc.cs.cpsc210.exceptions.ElementNotFoundException;
 import ca.ubc.cs.cpsc210.exceptions.OutOfBoundsException;
@@ -29,7 +29,6 @@ class ChoiceTest extends ModelTest {
 
     @Test
     void testCopyConstructor() {
-        // make a choice with some properties
         for (int i = 0; i != 3; ++i) {
             choice.addPro(new Consequence.Builder("Pro #" + i).isLongTerm().build());
         }
@@ -72,7 +71,6 @@ class ChoiceTest extends ModelTest {
             }
         }
 
-        // assert that they are different objects
         assertNotSame(choice, deepCopy);
     }
     
@@ -109,7 +107,6 @@ class ChoiceTest extends ModelTest {
         assertEquals(0, choice.regretValue());
     }
 
-    // START PROS TESTS
     @Test
     void testAddPro() {
         Consequence pro = new Consequence.Builder("Some description")
@@ -176,7 +173,6 @@ class ChoiceTest extends ModelTest {
         }
     }
 
-    // START CONS TESTS
     @Test
     void testRegretCon() {
         Consequence con = new Consequence.Builder("Some description")
@@ -243,7 +239,6 @@ class ChoiceTest extends ModelTest {
         }
     }
 
-    // START REGRETS TESTS
     @Test
     void testAddRegret() {
         Consequence regret = new Consequence.Builder("Some description")

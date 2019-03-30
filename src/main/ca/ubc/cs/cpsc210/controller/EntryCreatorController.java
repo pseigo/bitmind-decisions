@@ -1,7 +1,7 @@
 package ca.ubc.cs.cpsc210.controller;
 
-import ca.ubc.cs.cpsc210.entry.Choice;
-import ca.ubc.cs.cpsc210.ui.EntryWizard;
+import ca.ubc.cs.cpsc210.model.Choice;
+import ca.ubc.cs.cpsc210.ui.LinearFxmlWizard;
 import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
@@ -23,6 +23,11 @@ public class EntryCreatorController {
     private List<Choice> choices;
     private Stage entryCreatorStage;
 
+    /**
+     * Loads FXML resource and populates card with given {@code entry} data.
+     * @param choices reference to choices list so that this controller can store user inputs
+     * @param entryCreatorStage reference back to the containing stage so this pane can close itself
+     */
     public void setData(List<Choice> choices, Stage entryCreatorStage) {
         this.choices = choices;
         this.entryCreatorStage = entryCreatorStage;
@@ -44,13 +49,12 @@ public class EntryCreatorController {
     }
 
     private void handleBtnEditChoiceClick(Choice choice, TextField fldDescription) {
-        EntryWizard entryWizard = new EntryWizard();
-        ObservableMap<String, Object> result = entryWizard.createWizard(
-                "EntryCreatorChoiceEditor",
-                1,
-                "temp"
-        );
+        // TODO load wizard as member variable. Only call `show()` onClick.
+        LinearFxmlWizard linearFxmlWizard = new LinearFxmlWizard();
+        linearFxmlWizard.load("EntryCreatorChoiceEditor", 1, "temp");
+        ObservableMap<String, Object> result = linearFxmlWizard.show();
 
+        // TODO remove debug line
         System.out.println("Finished! Here is the result: " + result);
     }
 
