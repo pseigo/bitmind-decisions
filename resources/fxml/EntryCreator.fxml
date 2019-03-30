@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.glyphfont.Glyph?>
+<fx:root alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" type="VBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.ubc.cs.cpsc210.controller.EntryCreatorController">
+   <children>
+      <Label text="New Entry">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label text="Write about a problem that you are facing today." />
+      <GridPane fx:id="gridChoices1">
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="140.0" minWidth="10.0" prefWidth="140.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Problem Description:" wrapText="true" />
+            <TextField id="fldProblemDescription" prefHeight="25.0" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Label text="Choices">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label text="Write a short description for each choice, then click the pencil icon to add details." />
+      <GridPane fx:id="gridChoices">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="30.0" prefWidth="80.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="25.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Choice 1:" />
+            <TextField id="fldDescriptionChoice1" GridPane.columnIndex="1" />
+            <Label text="Choice 2:" GridPane.rowIndex="1" />
+            <Label text="Choice 3:" GridPane.rowIndex="2" />
+            <TextField id="fldDescriptionChoice2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField id="fldDescriptionChoice3" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Glyph alignment="CENTER" fontFamily="FontAwesome" icon="pencil" onMouseClicked="#handleBtnEditChoice1Click" style="-fx-cursor: hand;" textFill="#19b5fe" GridPane.columnIndex="2" />
+            <Glyph alignment="CENTER" fontFamily="FontAwesome" icon="pencil" onMouseClicked="#handleBtnEditChoice2Click" style="-fx-cursor: hand;" textFill="#19b5fe" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Glyph alignment="CENTER" fontFamily="FontAwesome" icon="pencil" onMouseClicked="#handleBtnEditChoice3Click" style="-fx-cursor: hand;" textFill="#19b5fe" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button mnemonicParsing="false" onMouseClicked="#handleBtnCreateEntryClick" text="Create entry" />
+   </children>
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+</fx:root>

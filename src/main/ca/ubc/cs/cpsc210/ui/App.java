@@ -60,6 +60,7 @@ public class App extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
+//        setUserAgentStylesheet(STYLESHEET_);
         setPrimaryStage(primaryStage);
         Parent root = new Dashboard(journal);
         setScene(root);
