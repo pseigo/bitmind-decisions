@@ -3,16 +3,14 @@ package ca.ubc.cs.cpsc210.entry;
 import ca.ubc.cs.cpsc210.exceptions.NoEntriesAddedException;
 import ca.ubc.cs.cpsc210.exceptions.OutOfBoundsException;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Represents a collection of entries.
  * @author Peyton Seigo
  */
-public class Journal {
+public class Journal implements Iterable<Entry> {
+
     private Map<Integer, Entry> entries;
     private int nextId;
     private int greatestIdWithEntry;
@@ -174,5 +172,16 @@ public class Journal {
     @Override
     public int hashCode() {
         return Objects.hash(entries, nextId, greatestIdWithEntry);
+    }
+
+    // TODO test
+    /**
+     * Returns an iterator over elements of type {@code Entry}.
+     *
+     * @return an Iterator.
+     */
+    @Override
+    public Iterator<Entry> iterator() {
+        return new ReverseChronoEntryIterator(entries, greatestIdWithEntry);
     }
 }

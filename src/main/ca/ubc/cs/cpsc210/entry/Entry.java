@@ -9,7 +9,7 @@ import java.util.*;
  * Represents a problem with an arbitrary number of choices.
  * @author Peyton Seigo
  */
-public class Entry {
+public class Entry implements Iterable<Choice> {
     private String problemDescription;
     private List<Choice> choices;
 //    private Choice decision = null; // TODO implement Entry decision functionality
@@ -71,6 +71,14 @@ public class Entry {
      */
     public String description() {
         return problemDescription;
+    }
+
+    /**
+     * Sets entry description to {@code description}.
+     * @param description to set
+     */
+    public void setDescription(String description) {
+        problemDescription = description;
     }
 
     /**
@@ -207,5 +215,15 @@ public class Entry {
     @Override
     public int hashCode() {
         return Objects.hash(problemDescription, creationDateTime, choices, status);
+    }
+
+    /**
+     * Returns an iterator over elements of type {@code Choice}.
+     *
+     * @return an Iterator.
+     */
+    @Override
+    public Iterator<Choice> iterator() {
+        return choices.iterator();
     }
 }

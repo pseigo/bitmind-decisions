@@ -3,6 +3,7 @@ package ca.ubc.cs.cpsc210.parsers;
 import ca.ubc.cs.cpsc210.entry.EntryDateTime;
 import org.json.JSONObject;
 
+import java.time.DateTimeException;
 import java.time.LocalDateTime;
 
 /**
@@ -14,8 +15,9 @@ public class EntryDateTimeParser {
      * Parses input (a JSONObject as text) to an {@code EntryDateTime} and returns it.
      * @param input JSON representing the {@code EntryDateTime}
      * @return {@code EntryDateTime} object created from input string
+     * @throws DateTimeException if date-time data is invalid
      */
-    public static EntryDateTime parse(String input) {
+    public static EntryDateTime parse(String input) throws DateTimeException {
         JSONObject edtJson = new JSONObject(input);
         LocalDateTime localDateTime = LocalDateTime.of(
                 edtJson.getInt("year"),
