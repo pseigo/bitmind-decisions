@@ -58,7 +58,7 @@ public class DashboardController {
             entryCreatorStage.setResizable(true);
             entryCreatorStage.show();
         } catch (Exception e) {
-            // TODO error + log
+
             e.printStackTrace();
         }
     }
@@ -78,7 +78,7 @@ public class DashboardController {
         lblTitle.setText(titleText);
     }
 
-    // TODO extract to own class
+
     private VBox makeInfoPanel(Entry entry) {
         final LocalDate localDate = entry.creationDateTime().toLocalDate();
         Label lblMonthDay = new Label(localDate.format(DateTimeFormatter.ofPattern("MMM d")));

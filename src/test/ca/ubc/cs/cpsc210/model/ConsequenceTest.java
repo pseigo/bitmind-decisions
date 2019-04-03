@@ -29,7 +29,7 @@ class ConsequenceTest extends ModelTest {
                     .build();
             fail("did not catch EmptyDescriptionException when expected");
         } catch(EmptyDescriptionException e) {
-            // Expected behaviour
+
         }
         assertNull(consequence);
     }
@@ -75,15 +75,15 @@ class ConsequenceTest extends ModelTest {
                 .isShortTerm()
                 .build();
 
-        // Same instance
+
         assertEquals(allParams, allParams);
         assertSame(allParams, allParams);
 
-        // Misc. (for that test coverage)
+
         assertNotEquals(null, allParams);
         assertNotEquals(allParams, new Object());
 
-        // New object with identical (equal) fields
+
         Consequence sameFields = new Consequence.Builder("Foobar")
                 .isLongTerm()
                 .isShortTerm()
@@ -92,8 +92,8 @@ class ConsequenceTest extends ModelTest {
         assertEquals(allParams.hashCode(), sameFields.hashCode());
         assertNotSame(allParams, sameFields);
 
-        // New objects with different (not equal) parameters
-        // d = "different" to indicate what was changed
+
+
         Consequence dDescription = new Consequence.Builder("Different description")
                 .isShortTerm()
                 .isLongTerm()

@@ -22,7 +22,7 @@ public class JsonFileIO {
     private static final Path jsonDataFile = Paths.get("./resources/json/journal.json");
     private static final Path backupPath = Paths.get("./resources/json/backup");
 
-    // TODO: read/store entries individually, check for path existence (e.g. resources/json/myjournal), combine entries
+
     /**
      * Attempts to read a {@code Journal} from {@code journal.json} file on disk.
      * @return {@code Journal} parsed from {@code journal.json}
@@ -30,10 +30,10 @@ public class JsonFileIO {
      * @throws JSONException if {@code journal.json} is malformed or does not exist
      */
     public static Journal read() throws IOException, JSONException {
-        // more efficient than concatenation
+
         StringBuilder fileInput = new StringBuilder();
 
-        // try-with-resources deals with closing the stream
+
         try (Scanner scanner = new Scanner(Files.newBufferedReader(jsonDataFile))) {
             while (scanner.hasNext()) {
                 fileInput.append(scanner.nextLine());
@@ -48,7 +48,7 @@ public class JsonFileIO {
      * @throws IOException if an I/O exception occurs when reading from or closing {@code journal.json}
      */
     public static void write(Journal journal) throws IOException {
-        // try-with-resources deals with closing the stream
+
         try (BufferedWriter writer = Files.newBufferedWriter(jsonDataFile)) {
             JSONObject journalJson = JsonEncoder.journalToJson(journal);
             String journalString = journalJson.toString();
@@ -56,7 +56,7 @@ public class JsonFileIO {
         }
     }
 
-    // TODO backup()
+
     /**
      * If {@code journal.json} exists, creates a timestamped copy at the configured backup path. Otherwise, does
      * nothing.
@@ -65,7 +65,7 @@ public class JsonFileIO {
 
     }
 
-    // TODO deleteBackupsOlderThan(<a date>); make sure to document
+
     public static void deleteBackupsOlderThan() {
 
     }

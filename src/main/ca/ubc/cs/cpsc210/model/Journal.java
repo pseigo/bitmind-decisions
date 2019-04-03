@@ -25,7 +25,7 @@ public class Journal implements Iterable<Entry> {
         greatestIdWithEntry = 0;
     }
 
-    // TODO test
+
     /**
      * Returns an unmodifiable map of entries.
      * @return entries
@@ -34,7 +34,7 @@ public class Journal implements Iterable<Entry> {
         return Collections.unmodifiableMap(entries);
     }
 
-    // TODO test adding entry at next available ID (before and at greatestIdWithEntry)
+
     /**
      * Adds a deep copy of given {@code entry} to this [@code Journal}'s entries at the first available id after
      * the greatest ID that maps to an entry (greatestIdWithEntry). This will not override any previously created
@@ -55,7 +55,7 @@ public class Journal implements Iterable<Entry> {
         return toAddId;
     }
 
-    // TODO implement and test
+
     /**
      * Adds a deep copy of given {@code entry} at entry {@code id}. Given {@code id} must be greater than or equal to 1.
      * Replaces any entry that exists at {@code id}.
@@ -72,7 +72,7 @@ public class Journal implements Iterable<Entry> {
         if (id > greatestIdWithEntry) {
             greatestIdWithEntry = id;
             nextId = id + 1;
-            // TODO need to deal with lastEntryDateTime? maybe compare to current date and update if newer
+
         }
     }
 
@@ -88,11 +88,11 @@ public class Journal implements Iterable<Entry> {
         }
 
         if (id == greatestIdWithEntry) {
-            // Stays null if never finds an existing entry
+
             lastEntryDateTime = null;
 
             for (int i = greatestIdWithEntry - 1; i != 0; --i) {
-                // Assume that entries does not contain null values
+
                 if (entries.containsKey(i)) {
                     lastEntryDateTime = entries.get(i).creationDateTime();
                     greatestIdWithEntry = i;
@@ -101,7 +101,7 @@ public class Journal implements Iterable<Entry> {
             }
         }
 
-        // We needed greatestIdWithEntry for our search, but we didn't find an entry, so set the greatest ID to 0.
+
         if (lastEntryDateTime == null) {
             greatestIdWithEntry = 0;
         }
@@ -109,18 +109,18 @@ public class Journal implements Iterable<Entry> {
         entries.remove(id);
     }
 
-    // TODO revamp tests without exceptions
+
     /**
      * If given {@code id} is mapped to an {@code Entry}, returns matching {@code Entry}. Otherwise, returns null.
      * @param id id to match for
      * @return {@code Entry} with an id equal to given {@code id}
      */
     public Entry get(int id) {
-        // Assume that entries does not contain null values
+
         return entries.get(id);
     }
 
-    // TODO test
+
     /**
      * Returns true if there exists an {@code Entry} at given {@code id}. In particular, returns true if {@code id}
      * is mapped to a value.
@@ -171,7 +171,7 @@ public class Journal implements Iterable<Entry> {
         return Objects.hash(entries, nextId, greatestIdWithEntry);
     }
 
-    // TODO test
+
     /**
      * Returns an iterator over elements of type {@code Entry}.
      *

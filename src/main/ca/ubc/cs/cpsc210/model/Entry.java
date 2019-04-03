@@ -28,7 +28,7 @@ public class Entry implements Iterable<Choice> {
         status = Status.DRAFT;
     }
 
-    // TODO test
+
     /**
      * Constructor for {@code Entry} class, initialized with given description, creation and completion dates, and a
      * status. {@code completionDateTime} is set to {@code null} if {@code status != Status.COMPLETE}.

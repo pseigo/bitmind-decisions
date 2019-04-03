@@ -43,7 +43,7 @@ class ChoiceTest extends ModelTest {
         Choice deepCopy = new Choice(choice);
         assertEquals(choice, deepCopy);
 
-        // compare properties of deep copy to original
+
         assertEquals(choice.description(), deepCopy.description());
         assertEquals(43, deepCopy.regretValue());
         for (int i = 0; i != 3; ++i) {
@@ -94,7 +94,7 @@ class ChoiceTest extends ModelTest {
             choice.setRegretValue(101);
             fail("did not catch OutOfBoundsException when expected");
         } catch (OutOfBoundsException e) {
-            // Expected behaviour
+
         }
         assertEquals(0, choice.regretValue());
 
@@ -102,7 +102,7 @@ class ChoiceTest extends ModelTest {
             choice.setRegretValue(-1);
             fail("did not catch OutOfBoundsException when expected");
         } catch (OutOfBoundsException e) {
-            // Expected behaviour
+
         }
         assertEquals(0, choice.regretValue());
     }
@@ -169,7 +169,7 @@ class ChoiceTest extends ModelTest {
             choice.getPro("This is not in the collection");
             fail("did not catch ElementNotFoundException when expected");
         } catch (ElementNotFoundException e) {
-            // Expected behaviour
+
         }
     }
 
@@ -235,7 +235,7 @@ class ChoiceTest extends ModelTest {
             choice.getCon("This is not in the collection");
             fail("did not catch ElementNotFoundException when expected");
         } catch (ElementNotFoundException e) {
-            // Expected behaviour
+
         }
     }
 
@@ -301,28 +301,28 @@ class ChoiceTest extends ModelTest {
             choice.getPro("This is not in the collection");
             fail("did not catch ElementNotFoundException when expected");
         } catch (ElementNotFoundException e) {
-            // Expected behaviour
+
         }
     }
 
     @Test
     void testEquals() {
-        // Same instance
+
         assertEquals(choice, choice);
         assertSame(choice, choice);
 
-        // Misc. (for that test coverage)
+
         assertNotEquals(null, choice);
         assertNotEquals(choice, new Object());
 
-        // New object with identical (equal) fields
+
         Choice sameFields = new Choice("Choice description");
         assertEquals(choice, sameFields);
         assertEquals(choice.hashCode(), sameFields.hashCode());
         assertNotSame(choice, sameFields);
 
-        // New objects with different (not equal) parameters
-        // d = "different" to indicate what was changed
+
+
         Choice dDescription = new Choice("Different");
         assertNotEquals(choice, dDescription);
 

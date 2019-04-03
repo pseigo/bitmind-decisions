@@ -11,7 +11,7 @@ import org.controlsfx.dialog.WizardPane;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO somehow let caller know if user cancelled dialog? exception? pass closedByClickingFinish?
+
 /**
  * @author Peyton Seigo
  */

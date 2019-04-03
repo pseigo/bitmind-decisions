@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-// TODO test here and in the Journal class
+
 /**
  * @author Peyton Seigo
  */

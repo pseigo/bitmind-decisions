@@ -42,12 +42,12 @@ public class App extends Application {
             primaryStage.setTitle(TITLE);
             primaryStage.setScene(scene);
             primaryStage.setOnCloseRequest(e -> {
-                e.consume(); // Prevent closing stage after event handler ends (JavaFX for Dummies, 2014, p. 89)
+                e.consume();
                 closeConfirmation();
             });
             primaryStage.show();
         } catch (Exception e) {
-            // TODO error + log
+
             e.printStackTrace();
         }
     }
@@ -75,7 +75,7 @@ public class App extends Application {
         try {
             journal = JsonFileIO.read();
         } catch (IOException e) {
-            // TODO: show + log error message or handle failed read by creating new Journal
+
             e.printStackTrace();
         }
     }

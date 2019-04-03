@@ -34,7 +34,7 @@ class EntryTest extends ModelTest {
             entry.completionDate();
             fail("did not catch EntryIncompleteException when expected");
         } catch (EntryIncompleteException e) {
-            // Expected behaviour
+
         }
     }
 
@@ -49,7 +49,7 @@ class EntryTest extends ModelTest {
 
         Entry deepCopy = new Entry(entry);
 
-        // compare properties of deep copy to original
+
         assertEquals(entry.description(), deepCopy.description());
         assertEquals(entry.creationDate(), deepCopy.creationDate());
         assertEquals(entry.creationDateTime(), deepCopy.creationDateTime());
@@ -75,7 +75,7 @@ class EntryTest extends ModelTest {
         assertNotSame(entry, deepCopy);
     }
 
-    // TODO EntryTest.testCreationDateTime
+
     @Test
     void testCreationDateTime() {
 
@@ -87,7 +87,7 @@ class EntryTest extends ModelTest {
             entry.getChoice("this does not exist");
             fail("did not catch ElementNotFoundException when expected");
         } catch (ElementNotFoundException e) {
-            // Expected behaviour
+
         }
     }
     
@@ -118,7 +118,7 @@ class EntryTest extends ModelTest {
             entry.getChoice("Some description");
             fail("did not catch ElementNotFoundException when expected");
         } catch (ElementNotFoundException e) {
-            // Expected behaviour
+
         }
     }
 
@@ -163,7 +163,7 @@ class EntryTest extends ModelTest {
         entry.addChoice(choice1);
         entry.addChoice(choice2);
 
-        // Modify first result to see if changes are propagated
+
         Choice choiceGet1 = null;
         try {
             choiceGet1 = entry.getChoice(choice1.description());
@@ -183,7 +183,7 @@ class EntryTest extends ModelTest {
             fail("caught " + e.toString() + " when regret value should have been in bounds");
         }
 
-        // Get second copy of Choice, make sure it does not have any of our changes on choiceGet1
+
         entry.removeChoice(choice1.description());
         Choice choiceGet2 = null;
         try {
@@ -194,31 +194,31 @@ class EntryTest extends ModelTest {
             fail("caught " + e.toString() + " when unexpected");
         }
 
-        // Should throw because choiceGet2 != choiceGet1, so it doesn't have the consequence that we added
+
         try {
             choiceGet2.getPro("Some consequence");
         } catch (ElementNotFoundException e) {
-            // Expected behaviour
+
         }
     }
 
     @Test
     void testEquals() {
-        // Same instance
+
         assertEquals(entry, entry);
         assertSame(entry, entry);
 
-        // Misc. (for that test coverage)
+
         assertNotEquals(null, entry);
         assertNotEquals(entry, new Object());
 
-        // New object with identical (equal) fields
+
         Entry sameFields = new Entry("Entry description");
         assertEquals(entry, sameFields);
         assertNotSame(entry, sameFields);
 
-        // New objects with different (not equal) parameters
-        // d = "different" to indicate what was changed
+
+
         Entry dDescription = new Entry("Different");
         assertNotEquals(entry, dDescription);
 

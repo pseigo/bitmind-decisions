@@ -60,7 +60,7 @@ public class EntryDateTime {
         return dateTime.toLocalTime();
     }
 
-    // TODO test
+
 
     @Override
     public boolean equals(Object o) {

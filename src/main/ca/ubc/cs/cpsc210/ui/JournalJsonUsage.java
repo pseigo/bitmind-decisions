@@ -26,11 +26,11 @@ class JournalJsonUsage {
         }
         System.out.println(JsonEncoder.journalToJson(journal).toString());
 
-//        Journal journal = testJournal();
-//        JSONObject entriesMap = JsonEncoder.journalToJson(journal);
-//
-//        System.out.println("JSON representation of Journal:\n");
-//        System.out.println(entriesMap.toString(4));
+
+
+
+
+
     }
 
     private static Journal testJournal() {

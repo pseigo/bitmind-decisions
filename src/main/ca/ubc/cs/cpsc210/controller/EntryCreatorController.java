@@ -49,12 +49,12 @@ public class EntryCreatorController {
     }
 
     private void handleBtnEditChoiceClick(Choice choice, TextField fldDescription) {
-        // TODO load wizard as member variable. Only call `show()` onClick.
+
         LinearFxmlWizard linearFxmlWizard = new LinearFxmlWizard();
         linearFxmlWizard.load("EntryCreatorChoiceEditor", 1, "temp");
         ObservableMap<String, Object> result = linearFxmlWizard.show();
 
-        // TODO remove debug line
+
         System.out.println("Finished! Here is the result: " + result);
     }
 

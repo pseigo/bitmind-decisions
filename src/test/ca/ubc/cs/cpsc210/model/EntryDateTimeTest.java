@@ -45,15 +45,15 @@ class EntryDateTimeTest extends ModelTest {
     void testEquals() {
         entryDateTime = EntryDateTime.now();
 
-        // Same instance
+
         assertEquals(entryDateTime, entryDateTime);
         assertSame(entryDateTime, entryDateTime);
 
-        // Misc. (for that test coverage)
+
         assertNotEquals(null, entryDateTime);
         assertNotEquals(entryDateTime, new Object());
 
-        // New object with identical (equal) fields
+
         EntryDateTime sameTime = EntryDateTime.of(
                 LocalDateTime.of(entryDateTime.toLocalDate(), entryDateTime.toLocalTime())
         );
@@ -62,7 +62,7 @@ class EntryDateTimeTest extends ModelTest {
         assertEquals(entryDateTime.hashCode(), sameTime.hashCode());
         assertNotSame(entryDateTime, sameTime);
 
-        // New object with different (not equal) parameters
+
         EntryDateTime plusFiveMinutes = EntryDateTime.of(LocalDateTime.now().plusMinutes(5));
         assertNotEquals(entryDateTime, plusFiveMinutes);
     }

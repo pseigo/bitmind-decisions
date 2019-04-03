@@ -27,7 +27,7 @@ class JournalTest extends ModelTest {
             journal.lastEntryDateShort();
             fail("didn't catch NoEntriesAddedException when expected");
         } catch (NoEntriesAddedException e) {
-            // Expected behaviour
+
         }
 
         assertNull(journal.get(1));
@@ -47,7 +47,7 @@ class JournalTest extends ModelTest {
             fail("caught " + e.toString() + " when unexpected");
         }
 
-        // Entry in journal should be a deep copy; not the same object
+
         Entry entryGet = journal.get(1);
         assertNotSame(entryGet, entry);
         assertEquals(entryGet.description(), entry.description());
@@ -71,7 +71,7 @@ class JournalTest extends ModelTest {
             journal.lastEntryDateShort();
             fail("didn't catch NoEntriesAddedException when expected");
         } catch (NoEntriesAddedException e) {
-            // Expected behaviour
+
         }
     }
 
@@ -182,13 +182,13 @@ class JournalTest extends ModelTest {
             journal.put(0, toAdd);
             fail("did not catch OutOfBoundsException when expected");
         } catch (OutOfBoundsException e) {
-            // Expected behaviour
+
         }
         try {
             journal.put(-1, toAdd);
             fail("did not catch OutOfBoundsException when expected");
         } catch (OutOfBoundsException e) {
-            // Expected behaviour
+
         }
         assertEquals(2, journal.size());
     }
@@ -203,7 +203,7 @@ class JournalTest extends ModelTest {
         assertEquals(2, journal.size());
     }
 
-    // TODO: use different creation dates
+
     @Test
     void testRemoveLastEntryDateShift() {
         for (int i = 0; i != 3; ++i) {
@@ -227,11 +227,11 @@ class JournalTest extends ModelTest {
             journal.lastEntryDateShort();
             fail("didn't catch NoEntriesAddedException when expected");
         } catch (NoEntriesAddedException e) {
-            // Expected behaviour
+
         }
     }
 
-    // TODO: use different creation dates
+
     @Test
     void testRemoveFromMiddle() {
         for (int i = 0; i != 3; ++i) {
@@ -260,29 +260,29 @@ class JournalTest extends ModelTest {
             journal.lastEntryDateShort();
             fail("didn't catch NoEntriesAddedException when expected");
         } catch (NoEntriesAddedException e) {
-            // Expected behaviour
+
         }
     }
 
     private void addTwoEntriesEnsureDeepCopy(Entry entry1, Entry entry2) {
-        assertEquals(1, journal.add(entry1)); // version in journal should not reference our entry here. should be deep copied
-        assertEquals(2, journal.add(entry2)); // entry in journal should be distinct from the last line
+        assertEquals(1, journal.add(entry1));
+        assertEquals(2, journal.add(entry2));
 
         Entry entryGet1 = journal.get(1);
         Entry entryGet2 = journal.get(2);
 
         assertEquals(2, journal.size());
-        assertNotSame(entryGet1, entryGet2); // compare by reference, not using equals()
+        assertNotSame(entryGet1, entryGet2);
         assertEquals(entryGet1.description(), entryGet2.description());
         assertEquals(entryGet1.status(), entryGet2.status());
 
-        // Indirectly change status using the class's exposed behaviour
+
         entryGet1.complete();
         assertEquals(Status.COMPLETE, entryGet1.status());
         assertEquals(Status.DRAFT, entryGet2.status());
         assertNotEquals(entryGet1.status(), entryGet2.status());
 
-        // Mutate status directly
+
         entryGet1.setStatus(Status.INCOMPLETE);
         entryGet2.setStatus(Status.DRAFT);
         assertNotEquals(entryGet1.status(), entryGet2.status());
@@ -290,15 +290,15 @@ class JournalTest extends ModelTest {
 
     @Test
     void testEquals() {
-        // Same instance
+
         assertEquals(journal, journal);
         assertSame(journal, journal);
 
-        // Misc. (for that test coverage)
+
         assertNotEquals(null, journal);
         assertNotEquals(journal, new Object());
 
-        // New object with identical (equal) fields
+
         Entry entry = new Entry("Entry description");
         entry.complete();
 
@@ -311,8 +311,8 @@ class JournalTest extends ModelTest {
         assertEquals(journal.hashCode(), sameFields.hashCode());
         assertNotSame(journal, sameFields);
 
-        // New objects with different (not equal) parameters
-        // d = "different" to indicate what was changed
+
+
         Journal dEntries = new Journal();
         dEntries.add(entry);
         dEntries.add(new Entry("Entry description"));
