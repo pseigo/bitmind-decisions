@@ -1,5 +1,7 @@
 # Personal Project: Codename *Bitmind*
 
+![Cover image for the Bitmind project with a screenshot of its graphical user interface on Windows 10.](cover-image.png)
+
 ## Motivation
 
 This was a course project for [CPSC 210](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=210) at the University of British Columbia. I wanted to create something beyond the course's standard project—a partially completed to-do list application—and gain the experience of building a system from scratch. I designed the system from the ground up and utilized the course's lessons on Objected Oriented Programming in Java.
