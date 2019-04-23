@@ -1,922 +1,980 @@
-    {
-        "1": {
-            "completionDateTime": true,
-            "description": "labore sit est consectetur duis irure pariatur veniam consequat ea adipisicing adipisicing",
-            "choices": [
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "esse tempor sit ex elit"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "aute adipisicing adipisicing magna consectetur"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "adipisicing aute excepteur incididunt ut"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "occaecat veniam nisi consectetur aute"
-                        }
-                    ],
-                    "regretValue": 93,
-                    "description": "laboris velit aliquip sunt ipsum sunt aute ut"
-                },
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "nulla tempor excepteur laborum sunt"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "non minim nulla consectetur dolor"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "proident Lorem officia ullamco anim"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "adipisicing cupidatat veniam non ea"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "minim aliquip officia laboris ea"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "in veniam ut duis et"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "veniam sint velit Lorem adipisicing"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "eiusmod fugiat ea duis id"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "eu ex culpa sit ut"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "labore anim minim elit ipsum"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "excepteur occaecat est magna magna"
-                        }
-                    ],
-                    "regretValue": 74,
-                    "description": "nulla culpa aliqua pariatur aliquip labore nulla quis"
-                }
-            ],
-            "status": "DRAFT",
-            "creationDateTime": {
-                "month": 7,
-                "hour": 7,
-                "year": 2015,
-                "dayOfMonth": 12,
-                "minute": 59,
-                "second": 59
+{
+    "1": {
+        "completionDateTime": null,
+        "description": "When to start English paper",
+        "choices": [
+            {
+                "pros": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "Will feel better about starting early"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "Can get feedback on Monday"
+                    }
+                ],
+                "regretValue": 0,
+                "regrets": [],
+                "description": "Start rough draft now",
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "Feels intimidating"
+                    }
+                ]
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "Have time to go out"
+                    }
+                ],
+                "regretValue": 0,
+                "regrets": [],
+                "description": "Put it off until tomorrow",
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "Fall further behind schedule"
+                    }
+                ]
             }
-        },
-        "2": {
-            "completionDateTime": false,
-            "description": "tempor cupidatat ipsum aliquip cillum consectetur labore tempor culpa amet eu cillum",
-            "choices": [
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "ut ut sint commodo non"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "incididunt deserunt veniam cupidatat reprehenderit"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "ex elit culpa proident minim"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "deserunt proident occaecat irure minim"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "consequat mollit sunt sit ipsum"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "amet sunt incididunt occaecat nostrud"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "cillum nostrud Lorem nostrud cillum"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "non anim exercitation elit cupidatat"
-                        }
-                    ],
-                    "regretValue": 80,
-                    "description": "excepteur Lorem nostrud ea pariatur aliqua id excepteur"
-                },
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "ea consectetur ullamco cillum voluptate"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "enim mollit excepteur anim nulla"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "anim labore consectetur fugiat velit"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "enim non voluptate cillum qui"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "do sit excepteur sit consectetur"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "labore velit qui labore mollit"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "incididunt laborum quis ut do"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "nisi pariatur sunt anim dolore"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "nisi elit incididunt elit pariatur"
-                        }
-                    ],
-                    "regretValue": 14,
-                    "description": "eu aliqua nulla ut mollit culpa pariatur officia"
-                }
-            ],
-            "status": "DRAFT",
-            "creationDateTime": {
-                "month": 9,
-                "hour": 5,
-                "year": 2015,
-                "dayOfMonth": 16,
-                "minute": 38,
-                "second": 36
+        ],
+        "status": "DRAFT",
+        "creationDateTime": {
+            "month": 3,
+            "hour": 13,
+            "year": 2019,
+            "dayOfMonth": 28,
+            "minute": 0,
+            "second": 53
+        }
+    },
+    "2": {
+        "completionDateTime": true,
+        "description": "labore sit est consectetur duis irure pariatur veniam consequat ea adipisicing adipisicing",
+        "choices": [
+            {
+                "pros": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "esse tempor sit ex elit"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "aute adipisicing adipisicing magna consectetur"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "adipisicing aute excepteur incididunt ut"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "occaecat veniam nisi consectetur aute"
+                    }
+                ],
+                "regretValue": 93,
+                "description": "laboris velit aliquip sunt ipsum sunt aute ut"
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "nulla tempor excepteur laborum sunt"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "non minim nulla consectetur dolor"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "proident Lorem officia ullamco anim"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "adipisicing cupidatat veniam non ea"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "minim aliquip officia laboris ea"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "in veniam ut duis et"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "veniam sint velit Lorem adipisicing"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "eiusmod fugiat ea duis id"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "eu ex culpa sit ut"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "labore anim minim elit ipsum"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "excepteur occaecat est magna magna"
+                    }
+                ],
+                "regretValue": 74,
+                "description": "nulla culpa aliqua pariatur aliquip labore nulla quis"
             }
-        },
-        "4": {
-            "completionDateTime": false,
-            "description": "labore eiusmod consequat aliqua pariatur proident Lorem qui exercitation ipsum sunt culpa",
-            "choices": [
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "in nisi laboris magna aliqua"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "excepteur est reprehenderit pariatur quis"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "enim ut amet dolore excepteur"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "elit qui nulla aliquip et"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "nisi minim laborum quis aliqua"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "pariatur in irure nostrud nisi"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "laboris do officia qui proident"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "qui ex ex eu incididunt"
-                        }
-                    ],
-                    "regretValue": 13,
-                    "description": "enim in quis eu sint aliqua velit veniam"
-                },
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "cillum elit non nulla dolor"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "adipisicing veniam fugiat esse magna"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "dolor sit laboris nulla eu"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "dolore veniam officia excepteur aliqua"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "officia duis ipsum in ullamco"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "in id culpa dolor non"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "excepteur fugiat nostrud voluptate ut"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "nulla dolor cillum nostrud nulla"
-                        }
-                    ],
-                    "regretValue": 70,
-                    "description": "consectetur duis anim consectetur deserunt ut deserunt ad"
-                },
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "ex esse amet eu exercitation"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "eu ut anim occaecat ipsum"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "fugiat labore pariatur consequat cupidatat"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "consequat excepteur proident enim laborum"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "aliquip adipisicing laboris qui commodo"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "et ea in ea irure"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "laborum quis sunt adipisicing labore"
-                        }
-                    ],
-                    "regretValue": 66,
-                    "description": "quis officia ad fugiat veniam voluptate mollit aliqua"
-                }
-            ],
-            "status": "DRAFT",
-            "creationDateTime": {
-                "month": 2,
-                "hour": 11,
-                "year": 2016,
-                "dayOfMonth": 7,
-                "minute": 11,
-                "second": 1
+        ],
+        "status": "DRAFT",
+        "creationDateTime": {
+            "month": 7,
+            "hour": 7,
+            "year": 2015,
+            "dayOfMonth": 12,
+            "minute": 59,
+            "second": 59
+        }
+    },
+    "3": {
+        "completionDateTime": false,
+        "description": "tempor cupidatat ipsum aliquip cillum consectetur labore tempor culpa amet eu cillum",
+        "choices": [
+            {
+                "pros": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "ut ut sint commodo non"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "incididunt deserunt veniam cupidatat reprehenderit"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "ex elit culpa proident minim"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "deserunt proident occaecat irure minim"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "consequat mollit sunt sit ipsum"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "amet sunt incididunt occaecat nostrud"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "cillum nostrud Lorem nostrud cillum"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "non anim exercitation elit cupidatat"
+                    }
+                ],
+                "regretValue": 80,
+                "description": "excepteur Lorem nostrud ea pariatur aliqua id excepteur"
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "ea consectetur ullamco cillum voluptate"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "enim mollit excepteur anim nulla"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "anim labore consectetur fugiat velit"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "enim non voluptate cillum qui"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "do sit excepteur sit consectetur"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "labore velit qui labore mollit"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "incididunt laborum quis ut do"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "nisi pariatur sunt anim dolore"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "nisi elit incididunt elit pariatur"
+                    }
+                ],
+                "regretValue": 14,
+                "description": "eu aliqua nulla ut mollit culpa pariatur officia"
             }
-        },
-        "6": {
-            "completionDateTime": true,
-            "description": "ex voluptate deserunt proident officia dolore magna cupidatat aute ut fugiat officia",
-            "choices": [
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "pariatur exercitation culpa nulla dolore"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "non occaecat veniam aliqua officia"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "aliqua ad amet cupidatat dolor"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "dolore consequat adipisicing fugiat consequat"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "dolor fugiat veniam veniam adipisicing"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "elit sunt in et quis"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "est nisi deserunt eiusmod ut"
-                        }
-                    ],
-                    "regretValue": 24,
-                    "description": "adipisicing quis cupidatat irure Lorem dolor cillum magna"
-                },
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "officia consequat elit eu sunt"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "reprehenderit labore culpa ullamco magna"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "esse dolor irure quis Lorem"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "ut in deserunt id veniam"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "dolor veniam qui adipisicing reprehenderit"
-                        }
-                    ],
-                    "regretValue": 79,
-                    "description": "ipsum commodo voluptate dolor id duis consectetur ea"
-                },
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "cupidatat dolor sunt commodo minim"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "duis deserunt ad fugiat ullamco"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "sunt reprehenderit esse veniam ullamco"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "culpa excepteur nostrud anim qui"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "velit quis sunt pariatur Lorem"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "elit consectetur aliquip cillum culpa"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "aliquip ut id et laborum"
-                        }
-                    ],
-                    "regretValue": 75,
-                    "description": "ut excepteur labore ad ea elit occaecat dolor"
-                }
-            ],
-            "status": "DRAFT",
-            "creationDateTime": {
-                "month": 5,
-                "hour": 20,
-                "year": 2016,
-                "dayOfMonth": 11,
-                "minute": 31,
-                "second": 50
+        ],
+        "status": "DRAFT",
+        "creationDateTime": {
+            "month": 9,
+            "hour": 5,
+            "year": 2015,
+            "dayOfMonth": 16,
+            "minute": 38,
+            "second": 36
+        }
+    },
+    "4": {
+        "completionDateTime": false,
+        "description": "labore eiusmod consequat aliqua pariatur proident Lorem qui exercitation ipsum sunt culpa",
+        "choices": [
+            {
+                "pros": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "in nisi laboris magna aliqua"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "excepteur est reprehenderit pariatur quis"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "enim ut amet dolore excepteur"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "elit qui nulla aliquip et"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "nisi minim laborum quis aliqua"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "pariatur in irure nostrud nisi"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "laboris do officia qui proident"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "qui ex ex eu incididunt"
+                    }
+                ],
+                "regretValue": 13,
+                "description": "enim in quis eu sint aliqua velit veniam"
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "cillum elit non nulla dolor"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "adipisicing veniam fugiat esse magna"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "dolor sit laboris nulla eu"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "dolore veniam officia excepteur aliqua"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "officia duis ipsum in ullamco"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "in id culpa dolor non"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "excepteur fugiat nostrud voluptate ut"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "nulla dolor cillum nostrud nulla"
+                    }
+                ],
+                "regretValue": 70,
+                "description": "consectetur duis anim consectetur deserunt ut deserunt ad"
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "ex esse amet eu exercitation"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "eu ut anim occaecat ipsum"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "fugiat labore pariatur consequat cupidatat"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "consequat excepteur proident enim laborum"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "aliquip adipisicing laboris qui commodo"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "et ea in ea irure"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "laborum quis sunt adipisicing labore"
+                    }
+                ],
+                "regretValue": 66,
+                "description": "quis officia ad fugiat veniam voluptate mollit aliqua"
             }
-        },
-        "8": {
-            "completionDateTime": false,
-            "description": "minim quis elit velit pariatur eiusmod cillum id duis cillum esse in",
-            "choices": [
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "mollit exercitation magna tempor duis"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "velit velit nisi sint aute"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "aliquip pariatur nisi adipisicing deserunt"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "cillum velit officia aute veniam"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "ipsum in ullamco commodo cupidatat"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "irure ullamco ad ullamco incididunt"
-                        }
-                    ],
-                    "regretValue": 83,
-                    "description": "in anim anim mollit duis dolor Lorem exercitation"
-                },
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "cillum officia duis aliqua dolore"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "excepteur eiusmod reprehenderit anim amet"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "eiusmod excepteur irure eu aute"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "qui esse officia sit tempor"
-                        }
-                    ],
-                    "regretValue": 71,
-                    "description": "consequat labore cillum reprehenderit minim labore voluptate proident"
-                },
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "dolor nulla exercitation do pariatur"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "aute voluptate velit consequat pariatur"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "tempor ut laboris elit ex"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "sint in laborum dolore nostrud"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "ut nulla cillum ullamco Lorem"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "aute occaecat magna deserunt culpa"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "do do elit commodo est"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "et aliqua ea pariatur non"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "consequat laboris irure nisi amet"
-                        }
-                    ],
-                    "regretValue": 70,
-                    "description": "amet tempor tempor adipisicing occaecat ut aliqua consequat"
-                }
-            ],
-            "status": "DRAFT",
-            "creationDateTime": {
-                "month": 1,
-                "hour": 0,
-                "year": 2017,
-                "dayOfMonth": 3,
-                "minute": 13,
-                "second": 39
+        ],
+        "status": "DRAFT",
+        "creationDateTime": {
+            "month": 2,
+            "hour": 11,
+            "year": 2016,
+            "dayOfMonth": 7,
+            "minute": 11,
+            "second": 1
+        }
+    },
+    "6": {
+        "completionDateTime": true,
+        "description": "ex voluptate deserunt proident officia dolore magna cupidatat aute ut fugiat officia",
+        "choices": [
+            {
+                "pros": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "pariatur exercitation culpa nulla dolore"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "non occaecat veniam aliqua officia"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "aliqua ad amet cupidatat dolor"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "dolore consequat adipisicing fugiat consequat"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "dolor fugiat veniam veniam adipisicing"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "elit sunt in et quis"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "est nisi deserunt eiusmod ut"
+                    }
+                ],
+                "regretValue": 24,
+                "description": "adipisicing quis cupidatat irure Lorem dolor cillum magna"
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "officia consequat elit eu sunt"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "reprehenderit labore culpa ullamco magna"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "esse dolor irure quis Lorem"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "ut in deserunt id veniam"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "dolor veniam qui adipisicing reprehenderit"
+                    }
+                ],
+                "regretValue": 79,
+                "description": "ipsum commodo voluptate dolor id duis consectetur ea"
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "cupidatat dolor sunt commodo minim"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "duis deserunt ad fugiat ullamco"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "sunt reprehenderit esse veniam ullamco"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "culpa excepteur nostrud anim qui"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "velit quis sunt pariatur Lorem"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "elit consectetur aliquip cillum culpa"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "aliquip ut id et laborum"
+                    }
+                ],
+                "regretValue": 75,
+                "description": "ut excepteur labore ad ea elit occaecat dolor"
             }
-        },
-        "9": {
-            "completionDateTime": false,
-            "description": "nisi laborum nostrud qui do sint pariatur id irure nostrud ex voluptate",
-            "choices": [
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "aute laboris Lorem id reprehenderit"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "culpa id aliquip cupidatat dolor"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "sunt cillum mollit culpa anim"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "laboris ad fugiat non occaecat"
-                        }
-                    ],
-                    "regretValue": 94,
-                    "description": "dolor id velit incididunt qui tempor voluptate culpa"
-                },
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "nulla deserunt aliqua anim incididunt"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "ea aute enim nulla sit"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "id culpa excepteur ad exercitation"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "pariatur exercitation ea consequat laboris"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "sint est Lorem est exercitation"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "incididunt fugiat occaecat deserunt laborum"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "veniam sint dolor amet laboris"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "non veniam incididunt tempor et"
-                        }
-                    ],
-                    "regretValue": 17,
-                    "description": "irure proident adipisicing esse minim sit amet ipsum"
-                }
-            ],
-            "status": "DRAFT",
-            "creationDateTime": {
-                "month": 5,
-                "hour": 14,
-                "year": 2018,
-                "dayOfMonth": 16,
-                "minute": 28,
-                "second": 52
+        ],
+        "status": "DRAFT",
+        "creationDateTime": {
+            "month": 5,
+            "hour": 20,
+            "year": 2016,
+            "dayOfMonth": 11,
+            "minute": 31,
+            "second": 50
+        }
+    },
+    "8": {
+        "completionDateTime": false,
+        "description": "minim quis elit velit pariatur eiusmod cillum id duis cillum esse in",
+        "choices": [
+            {
+                "pros": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "mollit exercitation magna tempor duis"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "velit velit nisi sint aute"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "aliquip pariatur nisi adipisicing deserunt"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "cillum velit officia aute veniam"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "ipsum in ullamco commodo cupidatat"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "irure ullamco ad ullamco incididunt"
+                    }
+                ],
+                "regretValue": 83,
+                "description": "in anim anim mollit duis dolor Lorem exercitation"
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "cillum officia duis aliqua dolore"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "excepteur eiusmod reprehenderit anim amet"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "eiusmod excepteur irure eu aute"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "qui esse officia sit tempor"
+                    }
+                ],
+                "regretValue": 71,
+                "description": "consequat labore cillum reprehenderit minim labore voluptate proident"
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "dolor nulla exercitation do pariatur"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "aute voluptate velit consequat pariatur"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "tempor ut laboris elit ex"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "sint in laborum dolore nostrud"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "ut nulla cillum ullamco Lorem"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "aute occaecat magna deserunt culpa"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "do do elit commodo est"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "et aliqua ea pariatur non"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "consequat laboris irure nisi amet"
+                    }
+                ],
+                "regretValue": 70,
+                "description": "amet tempor tempor adipisicing occaecat ut aliqua consequat"
             }
-        },
-        "10": {
-            "completionDateTime": false,
-            "description": "reprehenderit amet cupidatat qui elit id do in sunt labore incididunt cupidatat",
-            "choices": [
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "nulla fugiat ex anim laboris"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "dolor veniam veniam reprehenderit elit"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "aliqua ad ad exercitation dolor"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "ullamco velit quis sit deserunt"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "consectetur enim qui proident labore"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "culpa Lorem commodo ipsum mollit"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "laboris et laborum exercitation excepteur"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "aliquip adipisicing dolore sunt do"
-                        }
-                    ],
-                    "regretValue": 20,
-                    "description": "cupidatat aliquip magna eu et pariatur et officia"
-                },
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "ea aute ex laborum deserunt"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "nostrud sit labore Lorem nulla"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "ex nisi aliquip pariatur dolor"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": true,
-                            "description": "elit non anim aute minim"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "laborum sunt mollit magna esse"
-                        }
-                    ],
-                    "regretValue": 28,
-                    "description": "nostrud incididunt commodo sunt adipisicing velit irure aliquip"
-                },
-                {
-                    "pros": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "Lorem irure sit ad voluptate"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": true,
-                            "description": "ut sit id cillum sunt"
-                        }
-                    ],
-                    "cons": [
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "est duis dolor enim dolore"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "eiusmod occaecat labore ad sunt"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "ea ad in non adipisicing"
-                        },
-                        {
-                            "isLongTerm": false,
-                            "isShortTerm": false,
-                            "description": "est consequat sunt et consectetur"
-                        }
-                    ],
-                    "regrets": [
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "sit commodo eu deserunt fugiat"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "ea incididunt consequat cillum consectetur"
-                        },
-                        {
-                            "isLongTerm": true,
-                            "isShortTerm": false,
-                            "description": "quis nulla ullamco aliqua minim"
-                        }
-                    ],
-                    "regretValue": 60,
-                    "description": "fugiat voluptate aliqua velit ullamco excepteur tempor nisi"
-                }
-            ],
-            "status": "DRAFT",
-            "creationDateTime": {
-                "month": 4,
-                "hour": 14,
-                "year": 2019,
-                "dayOfMonth": 18,
-                "minute": 22,
-                "second": 0
+        ],
+        "status": "DRAFT",
+        "creationDateTime": {
+            "month": 1,
+            "hour": 0,
+            "year": 2017,
+            "dayOfMonth": 3,
+            "minute": 13,
+            "second": 39
+        }
+    },
+    "9": {
+        "completionDateTime": false,
+        "description": "nisi laborum nostrud qui do sint pariatur id irure nostrud ex voluptate",
+        "choices": [
+            {
+                "pros": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "aute laboris Lorem id reprehenderit"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "culpa id aliquip cupidatat dolor"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "sunt cillum mollit culpa anim"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "laboris ad fugiat non occaecat"
+                    }
+                ],
+                "regretValue": 94,
+                "description": "dolor id velit incididunt qui tempor voluptate culpa"
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "nulla deserunt aliqua anim incididunt"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "ea aute enim nulla sit"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "id culpa excepteur ad exercitation"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "pariatur exercitation ea consequat laboris"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "sint est Lorem est exercitation"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "incididunt fugiat occaecat deserunt laborum"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "veniam sint dolor amet laboris"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "non veniam incididunt tempor et"
+                    }
+                ],
+                "regretValue": 17,
+                "description": "irure proident adipisicing esse minim sit amet ipsum"
             }
+        ],
+        "status": "DRAFT",
+        "creationDateTime": {
+            "month": 5,
+            "hour": 14,
+            "year": 2018,
+            "dayOfMonth": 16,
+            "minute": 28,
+            "second": 52
+        }
+    },
+    "10": {
+        "completionDateTime": false,
+        "description": "reprehenderit amet cupidatat qui elit id do in sunt labore incididunt cupidatat",
+        "choices": [
+            {
+                "pros": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "nulla fugiat ex anim laboris"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "dolor veniam veniam reprehenderit elit"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "aliqua ad ad exercitation dolor"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "ullamco velit quis sit deserunt"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "consectetur enim qui proident labore"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "culpa Lorem commodo ipsum mollit"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "laboris et laborum exercitation excepteur"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "aliquip adipisicing dolore sunt do"
+                    }
+                ],
+                "regretValue": 20,
+                "description": "cupidatat aliquip magna eu et pariatur et officia"
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "ea aute ex laborum deserunt"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "nostrud sit labore Lorem nulla"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "ex nisi aliquip pariatur dolor"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": true,
+                        "description": "elit non anim aute minim"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "laborum sunt mollit magna esse"
+                    }
+                ],
+                "regretValue": 28,
+                "description": "nostrud incididunt commodo sunt adipisicing velit irure aliquip"
+            },
+            {
+                "pros": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "Lorem irure sit ad voluptate"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": true,
+                        "description": "ut sit id cillum sunt"
+                    }
+                ],
+                "cons": [
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "est duis dolor enim dolore"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "eiusmod occaecat labore ad sunt"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "ea ad in non adipisicing"
+                    },
+                    {
+                        "isLongTerm": false,
+                        "isShortTerm": false,
+                        "description": "est consequat sunt et consectetur"
+                    }
+                ],
+                "regrets": [
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "sit commodo eu deserunt fugiat"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "ea incididunt consequat cillum consectetur"
+                    },
+                    {
+                        "isLongTerm": true,
+                        "isShortTerm": false,
+                        "description": "quis nulla ullamco aliqua minim"
+                    }
+                ],
+                "regretValue": 60,
+                "description": "fugiat voluptate aliqua velit ullamco excepteur tempor nisi"
+            }
+        ],
+        "status": "DRAFT",
+        "creationDateTime": {
+            "month": 4,
+            "hour": 14,
+            "year": 2019,
+            "dayOfMonth": 18,
+            "minute": 22,
+            "second": 0
         }
     }
+}

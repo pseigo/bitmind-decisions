@@ -22,8 +22,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="json-20180813" level="project" />
-    <orderEntry type="library" name="org.controlsfx:controlsfx:8.40.14" level="project" />
-    <orderEntry type="library" name="jfxrt" level="project" />
     <orderEntry type="library" name="JavaFX" level="project" />
+    <orderEntry type="library" name="org.controlsfx:controlsfx:11.0.0" level="project" />
   </component>
 </module>
