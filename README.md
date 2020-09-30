@@ -2,6 +2,8 @@
 
 ![Cover image for the Bitmind project with a screenshot of its graphical user interface on Windows 10.](cover-image.png)
 
+A desktop app to help journal tough decisions, possible choices, and the consequences of those choices.
+
 **[Read a detailed write-up of this project at my website! (peytonseigo.ca)](https://peytonseigo.ca/bitmind/)**
 
 ## Development instructions using the IntelliJ IDE
