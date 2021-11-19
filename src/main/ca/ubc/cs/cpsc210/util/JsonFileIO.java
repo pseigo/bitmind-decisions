@@ -22,7 +22,6 @@ public class JsonFileIO {
     private static final Path jsonDataFile = Paths.get("./resources/json/journal.json");
     private static final Path backupPath = Paths.get("./resources/json/backup");
 
-
     /**
      * Attempts to read a {@code Journal} from {@code journal.json} file on disk.
      * @return {@code Journal} parsed from {@code journal.json}
@@ -30,17 +29,17 @@ public class JsonFileIO {
      * @throws JSONException if {@code journal.json} is malformed or does not exist
      */
     public static Journal read() throws IOException, JSONException {
-
         StringBuilder fileInput = new StringBuilder();
-
 
         try (Scanner scanner = new Scanner(Files.newBufferedReader(jsonDataFile))) {
             while (scanner.hasNext()) {
                 fileInput.append(scanner.nextLine());
             }
         }
+
         return JournalParser.parse(fileInput.toString());
     }
+
 
     /**
      * Overwrites or creates {@code journal.json} file on disk with given {@code journal} encoded zto JSON.
@@ -48,7 +47,6 @@ public class JsonFileIO {
      * @throws IOException if an I/O exception occurs when reading from or closing {@code journal.json}
      */
     public static void write(Journal journal) throws IOException {
-
         try (BufferedWriter writer = Files.newBufferedWriter(jsonDataFile)) {
             JSONObject journalJson = JsonEncoder.journalToJson(journal);
             String journalString = journalJson.toString();
