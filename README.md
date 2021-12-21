@@ -4,8 +4,6 @@
 
 A desktop app to help journal tough decisions, possible choices, and the consequences of those choices.
 
-**[Read a detailed write-up of this project at my website! (peytonseigo.ca)](https://peytonseigo.ca/bitmind/)**
-
 ## Development instructions using the IntelliJ IDE
 
 1. Install the Java 11 JDK.
